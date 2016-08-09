@@ -8,8 +8,24 @@
 | next/previous error | cmd + ' /cmd + shift + '|
 | evaluate symbols | alt + F8 |
 | next method | alt + up |
+| 多选 | alt + shift |
+| 选择当前单词下次出现的位置 | ctrl + G
 
 ![img](./IMG/apcode_tool_windows.png)
+
+## vmoptions
+
+AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更改该文件会改变AppCode的文件签名，应当使用`Help-Edit Custom VM Options`来更改配置：
+```
+# custom AppCode VM options
+-Xss2m
+-Xms256m
+-Xmx4096m
+-XX:NewSize=128m
+-XX:MaxNewSize=256m
+-XX:ReservedCodeCacheSize=192m
+-XX:+UseCompressedOops
+```
 
 # Xcode
 

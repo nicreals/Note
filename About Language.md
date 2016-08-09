@@ -45,7 +45,58 @@ block(4);
 ### ARC
 
 * 只要一个对象被任意strong指针指向，那么他将不会被摧毁，如果对象没有strong指针指向，那没就会被摧毁；
+
 * 若一个对象没有指向它的strong指针，所有指向该对象的weak指针将被置为nil，避免EXC_BAD_ACCESS;
+
+### shadowCopy && deepCopy
+
+#### 定义
+
+* 浅拷贝：只是复制容器本身，不会复制容器内部的元素，浅拷贝后生成的新容器对象和原始容器对象共享内部元素；
+
+* 深拷贝：不仅复制容器本身，容器内部的元素也会复制，深拷贝后生成的新容器对象和原始容器的内部元素是独立的；
+
+#### copy && mutableCopy
+
+* 使用mutableCopy拷贝出的对象都会与被拷贝对象指向不同对象；使用copy拷贝出的对象若被拷贝对象是不可变对象，则指向同一对象，若被拷贝对象为不可变对象，则指向不同对象。
+
+* 对于集合类对象，使用mutableCopy，copy操作都是浅拷贝，技术拷贝出的对象内存地址不同，但集合内部元素内存地址相同。
+
+* 使用`initWithArray: copyItems:`拷贝出的对象只能实现单层深复制，完全深复制可以使用归档和解档：
+```
+copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:array]];
+```
+
+* 不可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。
+
+### Equality
+``
+一个`isEqual`的判断示例:
+
+```
+- (BOOL)isEqual:(id)object {
+  if (self == object) {
+    return YES;
+  }
+  if (![object isKindOfClass:[NSArray class]]) {
+    return NO;
+  }
+  return [self isEqualToArray:(NSArray *)object];
+}
+```
+
+* `isEqual`的判定结果与`hash`无关;
+
+* 对于`NSArray`对象，只要其子项满足`isEqualToString`，`isEqualToDictionary`等值比较，`isEqual`返回YES;同时`NSArray`的`containsObject:(id)object`判断的结果由与object`isEqual`的返回值决定；
+* 对于`NSMutableArray`对象，调用`removeObject:(id)object`，一旦子项中的对象与object`isEqual`返回YES，该子项将被移除。
+
+由于`字符串驻留`优化技术，** 所有静态定义的不可变字符串对象 ** ，如果字符串相同，那么这些对象都指向同一个驻留字符串值。
+
+```
+NSString *a = @"Hello";
+NSString *b = @"Hello";
+BOOL wtf = (a == b); // YES
+```
 
 ### weakSelf && strongSelf
 
@@ -67,12 +118,23 @@ block执行结束期间self是否被销毁为知，使用weakSelf可避免self�
 
 ### 泛型
 
+#### 定义
+
 泛型可用于制定容器中对象的类型：
 
 ```
 NSArray<NSString *> *strings = @[@"sun", @"yuan"];
 NSDictionary<NSString *, NSNumber *> *mapping = @{@"a": @1, @"b": @2};
 ```
+
+#### 协变性和逆变性（似乎只能在自定义泛型中使用）
+
+不指定类型的容器可以喝任意泛型类型转化，但指定泛型类型之后，两个不同类型之间不能强转，需要通过`__covariant`,`__contravariant`修饰；
+
+* `__covariant` - 协变性，子类型可以强转到父类型（里氏替换原则）eg: `NSArray <NSString *>` 类型的对象赋值给 `NSArray`
+
+* `__contravariant` - 逆变性，父类型可以强转到子类型（WTF?）eg:将一个`NSArray` 的对象赋值给`NSArray<NSNumber > *` 对象
+
 
 ### 类型检查
 

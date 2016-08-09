@@ -57,6 +57,14 @@ ContentHuggingPriority为阻止view被拉伸的优先级，优先级越高，越
 [array mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:20 leadSpacing:20 tailSpacing:20];
 ```
 
+## Baseline
+
+baseline即基线的意思，对应于Autolayout里面的NSLayoutFormatAlignAllBaseline。
+```
+make.baseline.equalTo(view);
+```
+改变一个view的baseline需要重写UIView的viewForBaselineLayout，返回的subView的baseline将作为view的baseline。
+
 ## Tips
 
 * 在创建UIScrollView及其子View的实例对象时为其设置frame，避免约束时警告；
