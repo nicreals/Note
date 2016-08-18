@@ -14,6 +14,31 @@
 
 * 程序代码区：这个区域主要存放函数体的二进制代码。
 
+### Runtime
+
+* [objc_msgSend](http://gold.xitu.io/post/57a9516e7db2a2005aba4809)
+
+![metaclass](./IMG/runtime_metaclass.png)
+
+* [Method Swizzling](http://gold.xitu.io/post/57aae1658ac247005f4da511)
+
+当使用`Method Swizzling`时，如下代码中调用`[self swizzed_method]`相当于调用替换之前的`[self method]`
+
+```
+- (void)swizzed_method {
+  [self swizzed_method];
+}
+```
+
+Objective-C中集合类簇实际对应的对象类型。
+
+| 类      | 对应的类簇 |
+|:------------- |:---------------:|
+| NSArray       |  __NSArrayI     |
+| NSMutableArray       |  __NSArrayM     |
+| NSDictionary       |  __NSDictionaryI     |
+| NSMutableDictionary     |  __NSDictionaryM     |
+
 ### block
 
 #### 定义

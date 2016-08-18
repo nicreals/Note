@@ -27,6 +27,8 @@
 
 ```
 
+如果scrollView的大小使用frame设置，而contentSize由masonry设置，那么scrollView的实际大小可能会与设置的frame大小不一致；
+
 ## 优先级
 
 每个约束的默认优先级为priorityHigh(),一个view一个属性有两个约束，会有限对优先级高的那个进行约束；
