@@ -24,7 +24,6 @@
 [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
       make.bottom.equalTo(scrollView);
 }];
-
 ```
 
 如果scrollView的大小使用frame设置，而contentSize由masonry设置，那么scrollView的实际大小可能会与设置的frame大小不一致；

@@ -32,12 +32,12 @@
 
 Objective-C中集合类簇实际对应的对象类型。
 
-| 类      | 对应的类簇 |
-|:------------- |:---------------:|
-| NSArray       |  __NSArrayI     |
-| NSMutableArray       |  __NSArrayM     |
-| NSDictionary       |  __NSDictionaryI     |
-| NSMutableDictionary     |  __NSDictionaryM     |
+| 类                   |      对应的类簇      |
+| :------------------ | :-------------: |
+| NSArray             |   __NSArrayI    |
+| NSMutableArray      |   __NSArrayM    |
+| NSDictionary        | __NSDictionaryI |
+| NSMutableDictionary | __NSDictionaryM |
 
 ### block
 
@@ -55,7 +55,7 @@ int (^multiBlock) (int) = ^(int intVar) {
 
 #### block的递归调用
 
-block要递归调用，block本身必须是全局变量或者是静态常量：
+sblock要递归调用，block本身必须是全局变量或者是静态常量：
 
 ```
 static void(^ const block)(int) = ^(int i) {
@@ -85,14 +85,14 @@ block(4);
 
 * 使用mutableCopy拷贝出的对象都会与被拷贝对象指向不同对象；使用copy拷贝出的对象若被拷贝对象是不可变对象，则指向同一对象，若被拷贝对象为不可变对象，则指向不同对象。
 
-* 对于集合类对象，使用mutableCopy，copy操作都是浅拷贝，技术拷贝出的对象内存地址不同，但集合内部元素内存地址相同。
+* 对于集合类对象，使用mutableCopy，copy操作都是浅拷贝，即使拷贝出的对象内存地址不同，但集合内部元素内存地址相同。
 
 * 使用`initWithArray: copyItems:`拷贝出的对象只能实现单层深复制，完全深复制可以使用归档和解档：
 ```
 copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:array]];
 ```
 
-* 不可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。
+* 可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。
 
 ### Equality
 ``
@@ -189,18 +189,21 @@ UIButton *button = [view.subviews lastObject];
 
 IOS 7 OR LATER
 
-* info.plist 设置`UIViewControllerBasedStatusBarAppearance`为YES；
+*   info.plist 设置`UIViewControllerBasedStatusBarAppearance`为YES；
 
-* 在UIViewController中重写`preferredStatusBarStyle`,并在需要改变`UIStatusBarStyle`时调用`[self setNeedsStatusBarAppearanceUpdate];`
+*   在UIViewController中重写`preferredStatusBarStyle`,并在需要改变`UIStatusBarStyle`时调用`[self setNeedsStatusBarAppearanceUpdate];`
 
-* 在UINavigationController重写`preferredStatusBarStyle`方法，返回topViewController的UIStatusBarStyle。
+*   在UINavigationController重写`preferredStatusBarStyle`方法，返回topViewController的UIStatusBarStyle。
 
-    ```
-    - (UIStatusBarStyle)preferredStatusBarStyle {
-        UIViewController *viewController = self.topViewController;
-        return [viewController preferredStatusBarStyle];
-    }
-    ```
+          ​```
+          (UIStatusBarStyle)preferredStatusBarStyle {
+          
+            UIViewController *viewController = self.topViewController;
+          
+            return [viewController preferredStatusBarStyle];
+          
+          }
+          ​```
 
 BEFORE IOS7
 
@@ -219,6 +222,8 @@ BEFORE IOS7
 * `modalPresentationCapturesStatusBarAppearance`控制在present一个viewController时，是否由被present的viewController控制statusBarStyle，默认为NO。
 
 #### 自定义UINavigationBar样式
+
+
 
 * 设置阴影线条image
 
@@ -246,7 +251,6 @@ BEFORE IOS7
 extern NSString * const kConstExternFoo;
 .m //
 NSString * const kConstExternFoo = @"ConstExternFoo";
-
 ```
 
 #### static全局变量 & static局部变量
