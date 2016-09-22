@@ -1,5 +1,13 @@
 # Objective- C
 
+> [NSString特性分析学习](https://blog.cnbluebox.com/blog/2014/04/16/nsstringte-xing-fen-xi-xue-xi/)
+>
+> [Runtime系列1--从一个崩溃谈起](http://gold.xitu.io/post/57a9516e7db2a2005aba4809)
+>
+> [Runtime系列2--Method Swizzling](http://gold.xitu.io/post/57aae1658ac247005f4da511)
+>
+> 
+
 ## Foundation
 
 ### 堆栈（系统）
@@ -16,11 +24,11 @@
 
 ### Runtime
 
-* [objc_msgSend](http://gold.xitu.io/post/57a9516e7db2a2005aba4809)
+* objc_msgSend
 
 ![metaclass](./IMG/runtime_metaclass.png)
 
-* [Method Swizzling](http://gold.xitu.io/post/57aae1658ac247005f4da511)
+* Method Swizzling
 
 当使用`Method Swizzling`时，如下代码中调用`[self swizzed_method]`相当于调用替换之前的`[self method]`
 
@@ -115,12 +123,16 @@ copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archived
 * 对于`NSArray`对象，只要其子项满足`isEqualToString`，`isEqualToDictionary`等值比较，`isEqual`返回YES;同时`NSArray`的`containsObject:(id)object`判断的结果由与object`isEqual`的返回值决定；
 * 对于`NSMutableArray`对象，调用`removeObject:(id)object`，一旦子项中的对象与object`isEqual`返回YES，该子项将被移除。
 
-由于`字符串驻留`优化技术，** 所有静态定义的不可变字符串对象 ** ，如果字符串相同，那么这些对象都指向同一个驻留字符串值。
+由于`字符串驻留`优化技术，** 所有静态定义的不可变字符串对象 ** ，如果字符串表意相同，那么这些对象都指向同一个驻留字符串值，其类型为`__NSCFConstantString`。
 
 ```
+// 静态定义
 NSString *a = @"Hello";
 NSString *b = @"Hello";
 BOOL wtf = (a == b); // YES
+// 非静态定义
+NSString *c = [NSString stringWithFormat:@"Hello"];
+BOOL ass = (a == c); // NO
 ```
 
 ### weakSelf && strongSelf
@@ -139,7 +151,7 @@ __weak __typeof__(self) weakSelf = self;
     [weakSelf doOtherThing];
 });
 ```
-block执行结束期间self是否被销毁为知，使用weakSelf可避免self，block循环引用，造成内存泄露，使用strongSelf可保证在block内部，self不会为nil；
+block执行结束期间self是否被销毁未知，使用weakSelf可避免self，block循环引用，造成内存泄露，使用strongSelf可保证在block内部，self不会为nil；
 
 ### 泛型
 
@@ -195,15 +207,15 @@ IOS 7 OR LATER
 
 *   在UINavigationController重写`preferredStatusBarStyle`方法，返回topViewController的UIStatusBarStyle。
 
-          ​```
-          (UIStatusBarStyle)preferredStatusBarStyle {
-          
-            UIViewController *viewController = self.topViewController;
-          
-            return [viewController preferredStatusBarStyle];
-          
-          }
-          ​```
+                ​```
+                (UIStatusBarStyle)preferredStatusBarStyle {
+                
+                  UIViewController *viewController = self.topViewController;
+                
+                  return [viewController preferredStatusBarStyle];
+                
+                }
+                ​```
 
 BEFORE IOS7
 
