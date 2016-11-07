@@ -1,14 +1,14 @@
 # AppCode
 
 ## Keymap
-| descriptions      | ShortCut |
-|:------------- |:---------------:|
-| override method  | cmd + opt + o |
-| find useage    |   cmd + opt + F7 |
-| next/previous error | cmd + ' /cmd + shift + '|
-| evaluate symbols | alt + F8 |
-| next method | alt + up |
-| 多选 | alt + shift |
+| descriptions        |         ShortCut         |
+| :------------------ | :----------------------: |
+| override method     |      cmd + opt + o       |
+| find useage         |      cmd + opt + F7      |
+| next/previous error | cmd + ' /cmd + shift + ' |
+| evaluate symbols    |         alt + F8         |
+| next method         |         alt + up         |
+| 多选                  |       alt + shift        |
 | 选择当前单词下次出现的位置 | ctrl + G
 
 ![img](./IMG/apcode_tool_windows.png)
@@ -48,3 +48,23 @@ Edit Scheme -> Arguments -> Environment Variables
 git config --global user.name "聂锐"
 
 git config --global user.email nic.reals@outlook.com
+
+# Fish Shell
+
+## 安装OMF
+
+```
+curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+omf help
+omf install pure
+omf theme pure
+```
+
+## 安装rvm
+
+```
+omf install rvm
+rvm install x.x
+rvm use x.x
+```
+

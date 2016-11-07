@@ -31,7 +31,7 @@ NaN表示函数返回值为空。
 除了使用`+`号连接字符串，还可以使用`${var}`的方式替换`var`的值,**并用<`>符号包裹**，简化书写(ES6新增)：
 
 ```
-var name = '钟加仁';
+var name = 'hole';
 var age = 20;
 var message = `你好, ${name}, 你今年${age}岁了!`;
 ```
@@ -58,13 +58,13 @@ Array元素的增删：
 JavaScript对象为动态类型，对象属性可以自由添加删除：
 
 ```
-var zjr = {
-    name: '钟加仁'
+var ass = {
+    name: 'hole'
 };
-zjr.age; // undefined
-zjr.age = 40; // 新增一个age属性
-zjr.age; // 40
-delete zjr.age; // 删除age属性
+ass.age; // undefined
+ass.age = 40; // 新增一个age属性
+ass.age; // 40
+delete ass.age; // 删除age属性
 ```
 
 `in`用于判断对象及其父对象是否拥有一个属性或者方法;
@@ -72,11 +72,11 @@ delete zjr.age; // 删除age属性
 `hasOwnProperty`用于判断对象是否拥有一个属性;
 
 ```
-var zjr = {
-    name: '钟加仁'
+var ass = {
+    name: 'hole'
 };
-var mobile = ['聂锐'，'钟加仁'，'老铁'，'林飞浪'];
-zjr.hasOwnProperty('name'); // true
+var mobile = ['聂锐'，'hole'，'老铁'，'林飞浪'];
+ass.hasOwnProperty('name'); // true
 mobile.hasOwnProperty('join'); // false hasOwnProperty不能用来判定方法
 'join' in mobile  //true in关键字可以判定是否包含属性和方法
 ```
@@ -226,20 +226,20 @@ function getAge() {
     return y - this.birth;
 }
 
-var zjr = {
-    name: '钟加仁',
+var ass = {
+    name: 'hole',
     birth: 1985,
     age: getAge
 };
 
-zjr.age(); // 31, 正常结果
+ass.age(); // 31, 正常结果
 getAge(); // NaN
 ```
 
 要保证`this`指代正确，函数调用必须使用`this.xxx`的形式：
 
 ```
-var fn = zjr.age; // 先拿到zjr的age函数
+var fn = ass.age; // 先拿到ass的age函数
 fn(); // NaN    what the fuck！
 ```
 
@@ -247,8 +247,8 @@ fn(); // NaN    what the fuck！
 
 ```
 'use strict';
-var zjr = {
-    name: '钟加仁',
+var ass = {
+    name: 'hole',
     birth: 1985,
     age: function () {
         function getAgeFromBirth() {
@@ -259,7 +259,7 @@ var zjr = {
     }
 };
 
-zjr.age(); // 指代undefined Uncaught TypeError: Cannot read property 'birth' of undefined 如果不用strict模式，this将指代window对象
+ass.age(); // 指代undefined Uncaught TypeError: Cannot read property 'birth' of undefined 如果不用strict模式，this将指代window对象
 ```
 
 使用`that`变量捕获`this`解决指代问题：
@@ -267,8 +267,8 @@ zjr.age(); // 指代undefined Uncaught TypeError: Cannot read property 'birth' o
 ```
 'use strict';
 
-var zjr = {
-    name: '钟加仁',
+var ass = {
+    name: 'hole',
     birth: 1985,
     age: function () {
         var that = this; // 在方法内部一开始就捕获this
@@ -280,7 +280,7 @@ var zjr = {
     }
 };
 
-zjr.age(); // 31
+ass.age(); // 31
 ```
 
 使用`apply()`,`call()`解决`this`指代问题：
@@ -290,15 +290,15 @@ function getMoney(x) {
     return x + this.birth;
 }
 
-var zjr = {
-    name: '钟加仁',
+var ass = {
+    name: 'hole',
     birth: 1985,
     money: getMoney
 };
 
-zjr.age(10000); // 11985
-getMoney.apply(zjr, [10000]); // 11985, 参数zjr制定调用对象 参数打包成Array传入
-getMoney.call(zjr,10000); // 11985,参数zjr制定调用对象 参数直接传入
+ass.age(10000); // 11985
+getMoney.apply(ass, [10000]); // 11985, 参数ass指定调用对象 参数打包成Array传入
+getMoney.call(ass,10000); // 11985,参数ass指定调用对象 参数直接传入
 ```
 
 ## Closure
