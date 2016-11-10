@@ -44,7 +44,7 @@ alert(s); // s仍然为'Test'
 ```
 ### Array
 
-Array元素的增删：
+Array元素的增删：Ò
 
 | Function             | Description       |
 | -------------------- | ----------------- |
@@ -317,7 +317,7 @@ function count() {
 }
 
 var results = count();
-var f1 = results[0]; 
+var f1 = results[0];
 var f2 = results[1];
 var f3 = results[2];
 f1(); // 16 WTF!
