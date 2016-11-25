@@ -26,6 +26,20 @@ AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更�
 -XX:ReservedCodeCacheSize=192m
 -XX:+UseCompressedOops
 ```
+# Shell
+
+```
+chmod + x ass.file //设置文件权限
+mv ass.file filename //更改文件名  
+```
+
+# Atom
+
+| descriptions        |         ShortCut         |
+| :------------------ | :----------------------: |
+| console             |  cmd + shift + p         |
+| list project        |  cmd + ctl  + l          |
+
 
 # Xcode
 
@@ -49,6 +63,8 @@ git config --global user.name "聂锐"
 
 git config --global user.email nic.reals@outlook.com
 
+sudo spctl --master-disable //关闭gatekeeper
+
 # Fish Shell
 
 ## 安装OMF
@@ -67,4 +83,3 @@ omf install rvm
 rvm install x.x
 rvm use x.x
 ```
-

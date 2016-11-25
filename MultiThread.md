@@ -1,4 +1,4 @@
-#MultiThread
+# MultiThread
 
 > [OS X 和 iOS 中的多线程技术](http://www.infoq.com/cn/articles/os-x-ios-multithread-technology)
 >
@@ -77,9 +77,9 @@ NSThread *main = [NSThread mainThread];
 
 ```
 //在指定线程上执行操作
-[self performSelector:@selector(run) onThread:thread withObject:nil waitUntilDone:YES]; 
+[self performSelector:@selector(run) onThread:thread withObject:nil waitUntilDone:YES];
 //在主线程上执行操作
-[self performSelectorOnMainThread:@selector(run) withObject:nil waitUntilDone:YES]; 
+[self performSelectorOnMainThread:@selector(run) withObject:nil waitUntilDone:YES];
 //在当前线程执行操作
 [self performSelector:@selector(run) withObject:nil];
 ```
@@ -244,7 +244,7 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
 dispatch_group_t group = dispatch_group_create(); //创建dispatch_group
 dispatch_group_async(group, queue, ^{ NSLog(@"block 1"));}); //把任务追加到队列中
 dispatch_group_async(group, queue, ^{NSLog(@"block 2");});
-dispatch_group_async(group, queue, ^{ 
+dispatch_group_async(group, queue, ^{
        [NSThread sleepForTimeInterval:5];
     NSLog(@"block 3");
 });    
@@ -417,9 +417,9 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer, ^{
-        
+
     });
-    
+
     dispatch_source_set_cancel_handler(timer, ^{
         NSLog(@"cancel");
         dispatch_release(timer);
@@ -429,4 +429,3 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
     // 取消timer
     dispatch_source_cancel(timer);
 ```
-
