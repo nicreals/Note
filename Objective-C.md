@@ -103,7 +103,6 @@ copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archived
 * 可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。
 
 ### Equality
-``
 一个`isEqual`的判断示例:
 
 ```
@@ -207,15 +206,15 @@ IOS 7 OR LATER
 
 *   在UINavigationController重写`preferredStatusBarStyle`方法，返回topViewController的UIStatusBarStyle。
 
-                ​```
-                (UIStatusBarStyle)preferredStatusBarStyle {
-                
-                  UIViewController *viewController = self.topViewController;
-                
-                  return [viewController preferredStatusBarStyle];
-                
-                }
-                ​```
+                  ​```
+                  (UIStatusBarStyle)preferredStatusBarStyle {
+                  
+                    UIViewController *viewController = self.topViewController;
+                  
+                    return [viewController preferredStatusBarStyle];
+                  
+                  }
+                  ​```
 
 BEFORE IOS7
 
