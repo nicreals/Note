@@ -2,7 +2,7 @@
 
 > 问Java和JavaScript有什么关系？
 >
-> 雷锋和雷锋塔的关系^_^。
+> 雷锋和雷锋塔的关系
 
 ## Foundation
 

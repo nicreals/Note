@@ -58,13 +58,20 @@ Build Setting -> other c flags -> `-Wextra`
 Edit Scheme -> Arguments -> Environment Variables
 
 # Git
-
+```
 git config --global user.name "聂锐"
 
 git config --global user.email nic.reals@outlook.com
 
 sudo spctl --master-disable //关闭gatekeeper
 
+git config --global http.proxy 'socks5://127.0.0.1:1080'  //配置git使用shadowsocks的sock5代理
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+git config --global get http.proxy
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+```
 # Fish Shell
 
 ## 安装OMF
