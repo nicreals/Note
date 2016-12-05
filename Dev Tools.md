@@ -28,9 +28,25 @@ AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更�
 ```
 # Shell
 
+## 常用命令
 ```
 chmod + x ass.file //设置文件权限
 mv ass.file filename //更改文件名  
+```
+## bash 设置socks5代理
+
+在`~/.bashrc`文件中加入如下function:
+
+```
+function setproxy() {
+    # export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:3128"
+    export ALL_PROXY=socks5://127.0.0.1:1080
+}
+
+function unsetproxy() {
+    # unset {HTTP,HTTPS,FTP}_PROXY
+    unset ALL_PROXY
+}
 ```
 
 # Atom
@@ -67,7 +83,7 @@ sudo spctl --master-disable //关闭gatekeeper
 
 git config --global http.proxy 'socks5://127.0.0.1:1080'  //配置git使用shadowsocks的sock5代理
 git config --global https.proxy 'socks5://127.0.0.1:1080'
-git config --global get http.proxy
+git config --global --get http.proxy
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 
@@ -90,3 +106,20 @@ omf install rvm
 rvm install x.x
 rvm use x.x
 ```
+
+## 设置代理
+1. 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
+```
+function setproxy
+    export ALL_PROXY=socks5://127.0.0.1:1080
+    echo '====== current socks proxy:127.0.0.1:1080 ======'
+end
+```
+2. 在`~/.config/fish/functions`创建`unsetproxy.fish`文件并设置如下function:
+```
+function unsetproxy
+    set -e ALL_PROXY
+    echo '====== current shell session proxy is erased ======'
+end
+```
+3. `curl -i http://ip.cn`测试更改是否生效
