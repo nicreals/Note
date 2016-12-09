@@ -73,6 +73,10 @@ Build Setting -> other c flags -> `-Wextra`
 
 Edit Scheme -> Arguments -> Environment Variables
 
+## 屏蔽第三方SDK`was built for newer iOS version`警告
+
+Target -> Build Setting -> Other Linker Flag -> `-w`
+
 # Git
 ```
 git config --global user.name "聂锐"
@@ -108,18 +112,18 @@ rvm use x.x
 ```
 
 ## 设置代理
-1. 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
+* 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
 ```
 function setproxy
     export ALL_PROXY=socks5://127.0.0.1:1080
     echo '====== current socks proxy:127.0.0.1:1080 ======'
 end
 ```
-2. 在`~/.config/fish/functions`创建`unsetproxy.fish`文件并设置如下function:
+* 在`~/.config/fish/functions`创建`unsetproxy.fish`文件并设置如下function:
 ```
 function unsetproxy
     set -e ALL_PROXY
     echo '====== current shell session proxy is erased ======'
 end
 ```
-3. `curl -i http://ip.cn`测试更改是否生效
+* `curl -i http://ip.cn`测试更改是否生效
