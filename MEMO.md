@@ -11,4 +11,4 @@
 
 ## Tips
 
-* `[tableView reloadData]`只会重新加载cell数据,而`[tableView reloadSection:]`,`[tableView relaodRows:]`则会使cell重新init.
+* `[tableView reloadData]`只会重新加载cell数据,而`[tableView reloadSection:]`,`[tableView relaodRows:]`除了animate为none以外都会会使cell重新init.
