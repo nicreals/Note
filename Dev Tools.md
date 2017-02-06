@@ -1,21 +1,23 @@
 # AppCode
 
 ## Keymap
-| descriptions        |         ShortCut         |
-| :------------------ | :----------------------: |
-| override method     |      cmd + opt + o       |
-| find useage         |      cmd + opt + F7      |
-| next/previous error | cmd + ' /cmd + shift + ' |
-| evaluate symbols    |         alt + F8         |
-| next method         |         alt + up         |
-| 多选                  |       alt + shift        |
-| 选择当前单词下次出现的位置 | ctrl + G
+
+descriptions        |         ShortCut
+:------------------ | :----------------------:
+override method     |      cmd + opt + o
+find useage         |      cmd + opt + F7
+next/previous error | cmd + ' /cmd + shift + '
+evaluate symbols    |         alt + F8
+next method         |         alt + up
+多选                  |       alt + shift
+选择当前单词下次出现的位置       |         ctrl + G
 
 ![img](./IMG/apcode_tool_windows.png)
 
 ## vmoptions
 
 AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更改该文件会改变AppCode的文件签名，应当使用`Help-Edit Custom VM Options`来更改配置：
+
 ```
 # custom AppCode VM options
 -Xss2m
@@ -26,13 +28,16 @@ AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更�
 -XX:ReservedCodeCacheSize=192m
 -XX:+UseCompressedOops
 ```
+
 # Shell
 
 ## 常用命令
+
 ```
 chmod + x ass.file //设置文件权限
-mv ass.file filename //更改文件名  
+mv ass.file filename //更改文件名
 ```
+
 ## bash 设置socks5代理
 
 在`~/.bashrc`文件中加入如下function:
@@ -51,11 +56,10 @@ function unsetproxy() {
 
 # Atom
 
-| descriptions        |         ShortCut         |
-| :------------------ | :----------------------: |
-| console             |  cmd + shift + p         |
-| list project        |  cmd + ctl  + l          |
-
+descriptions |    ShortCut
+:----------- | :-------------:
+console      | cmd + shift + p
+list project |  cmd + ctl + l
 
 # Xcode
 
@@ -69,15 +73,26 @@ Build Setting -> other c flags -> `-Wall`
 
 Build Setting -> other c flags -> `-Wextra`
 
+### 屏蔽第三方SDK`was built for newer iOS version`警告
+
+Target -> Build Setting -> Other Linker Flag -> `-w`
+
 ## 环境变量
 
 Edit Scheme -> Arguments -> Environment Variables
 
-## 屏蔽第三方SDK`was built for newer iOS version`警告
+## 解决project.pbxproj合并冲突
 
-Target -> Build Setting -> Other Linker Flag -> `-w`
+在工程更目录新建`.gitattributes`文件并添加如下内容:
+
+[Automatically resolving git merge conflicts in Xcode's project.pbxproj file](http://roadfiresoftware.com/2015/09/automatically-resolving-git-merge-conflicts-in-xcodes-project-pbxproj/)
+
+```
+*.pbxproj text -crlf -diff -merge=union
+```
 
 # Git
+
 ```
 git config --global user.name "聂锐"
 
@@ -90,8 +105,8 @@ git config --global https.proxy 'socks5://127.0.0.1:1080'
 git config --global --get http.proxy
 git config --global --unset http.proxy
 git config --global --unset https.proxy
-
 ```
+
 # Fish Shell
 
 ## 安装OMF
@@ -112,18 +127,23 @@ rvm use x.x
 ```
 
 ## 设置代理
-* 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
-```
-function setproxy
+
+- 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
+
+  ```
+  function setproxy
     export ALL_PROXY=socks5://127.0.0.1:1080
     echo '====== current socks proxy:127.0.0.1:1080 ======'
-end
-```
-* 在`~/.config/fish/functions`创建`unsetproxy.fish`文件并设置如下function:
-```
-function unsetproxy
+  end
+  ```
+
+- 在`~/.config/fish/functions`创建`unsetproxy.fish`文件并设置如下function:
+
+  ```
+  function unsetproxy
     set -e ALL_PROXY
     echo '====== current shell session proxy is erased ======'
-end
-```
-* `curl -i http://ip.cn`测试更改是否生效
+  end
+  ```
+
+- `curl -i http://ip.cn`测试更改是否生效
