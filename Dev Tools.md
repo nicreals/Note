@@ -1,6 +1,13 @@
-# AppCode
+# Dev Tools
 
-## vmoptions
+## Gears
+
+- [ImageOptim](https://github.com/ImageOptim/ImageOptim)Mac端图片压缩GUI工具
+- [LSUnusedResources](https://github.com/tinymind/LSUnusedResources)查找Xcode工程中未使用的图片
+
+## AppCode
+
+### vmoptions
 
 AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更改该文件会改变AppCode的文件签名，应当使用`Help-Edit Custom VM Options`来更改配置：
 
@@ -15,19 +22,19 @@ AppCode默认.vmoptions文件在~/Application/AppCode/bin/AppCode.vmoptions,更�
 -XX:+UseCompressedOops
 ```
 
-# Xcode
+## Xcode
 
-## Xcode 警告
+### Xcode 警告
 
-### 开启可信度较高的警告
+- 开启可信度较高的警告
 
 Build Setting -> other c flags -> `-Wall`
 
-### 开启大部分警告
+- 开启大部分警告
 
 Build Setting -> other c flags -> `-Wextra`
 
-### 屏蔽第三方SDK`was built for newer iOS version`警告
+- 屏蔽第三方SDK`was built for newer iOS version`警告
 
 Target -> Build Setting -> Other Linker Flag -> `-w`
 
