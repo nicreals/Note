@@ -4,7 +4,7 @@
 
 [MEMO](./MEMO.md)
 
-[Swif](./Swift.md)
+[Swift](./Swift.md)
 
 [Objective-C](Objective-C.md)
 
