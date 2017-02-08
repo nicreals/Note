@@ -1,7 +1,6 @@
 # Your Book Name
 
 * [Dev Tools](Dev Tools.md)
-* [I OS Performance Promotion](iOS Performance Promotion.md)
 * [Java Script](JavaScript.md)
 * [Masonry](Masonry.md)
 * [MEMO](MEMO.md)
