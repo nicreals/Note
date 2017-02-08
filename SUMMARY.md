@@ -1,10 +1,10 @@
-# Note
+# Your Book Name
 
 * [Dev Tools](Dev Tools.md)
-* [Java Script](JavaScript.md)
+* [JavaScript](JavaScript.md)
 * [Masonry](Masonry.md)
 * [MEMO](MEMO.md)
-* [Multi Thread](MultiThread.md)
-* [Objective C](Objective-C.md)
+* [MultiThread](MultiThread.md)
+* [Objective-C](Objective-C.md)
 * [React Native](React Native.md)
 * [Swift](Swift.md)
