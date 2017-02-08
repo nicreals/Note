@@ -6,7 +6,7 @@
 Descriptions |    ShortCut
 :----------- | :-------------:
 显示控制面板      | ⌘ + ⇧ + P
-列出所有project |  ⌘ + ⌃ + L
+列出所有Project |  ⌘ + ⌃ + L
 显示Markdown预览 | ⌃ + ⇧ + M
 
 ## Shell
