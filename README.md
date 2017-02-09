@@ -2,4 +2,4 @@
 
 自用笔记
 
-Gitbook传送门: [https://nicreals.gitbooks.io/note/](https://nicreals.gitbooks.io/note/)
+传送门: [https://nicreals.github.io/Blog](https://nicreals.github.io/Blog)
