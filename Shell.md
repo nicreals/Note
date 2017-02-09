@@ -7,6 +7,14 @@ chmod + x ass.file //设置文件权限
 mv ass.file filename //更改文件名
 ```
 
+## 关闭gatekeeper
+
+关闭`gatekeeper`可以允许Mac安装任何来源的APP
+
+```
+sudo spctl --master-disable
+```
+
 ## bash 设置socks5代理
 
 在`~/.bashrc`文件中加入如下function:
@@ -21,22 +29,6 @@ function unsetproxy() {
     # unset {HTTP,HTTPS,FTP}_PROXY
     unset ALL_PROXY
 }
-```
-
-## Git
-
-```
-git config --global user.name "聂锐"
-
-git config --global user.email nic.reals@outlook.com
-
-sudo spctl --master-disable //关闭gatekeeper
-
-git config --global http.proxy 'socks5://127.0.0.1:1080'  //配置git使用shadowsocks的sock5代理
-git config --global https.proxy 'socks5://127.0.0.1:1080'
-git config --global --get http.proxy
-git config --global --unset http.proxy
-git config --global --unset https.proxy
 ```
 
 ## Fish Shell
