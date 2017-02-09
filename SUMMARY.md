@@ -1,6 +1,8 @@
 # Note
 
+* [Design Pattern](/Design Pattern.md)
 * [Dev Tools](/Dev Tools.md)
+* [Git](/Git.md)
 * [Gitbook](/Gitbook.md)
 * [iOS Performance Promotion](/iOS Performance Promotion.md)
 * [JavaScript](/JavaScript.md)
