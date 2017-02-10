@@ -25,6 +25,6 @@ git fetch origin
 git reset origin/gh-pages
 git add . --all
 git commit -m "Deploy to GitHub Pages by travis"
-git push -q upstream HEAD:gh-pages
+git push -q origin HEAD:gh-pages
 
 cd ${CURRENT_DIR}
