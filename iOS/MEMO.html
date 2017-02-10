@@ -206,7 +206,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../Gear/Git.html">
+        <li class="chapter " data-level="1.4.1" data-path="../Gear/Atom.html">
+            
+                <a href="../Gear/Atom.html">
+            
+                    
+                    Atom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Gear/Git.html">
             
                 <a href="../Gear/Git.html">
             
@@ -219,7 +232,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../Gear/Gitbook.html">
+        <li class="chapter " data-level="1.4.3" data-path="../Gear/Gitbook.html">
             
                 <a href="../Gear/Gitbook.html">
             
@@ -232,7 +245,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../Gear/Shell.html">
+        <li class="chapter " data-level="1.4.4" data-path="../Gear/Shell.html">
             
                 <a href="../Gear/Shell.html">
             
@@ -245,12 +258,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../Gear/Travis-CI.html">
+        <li class="chapter " data-level="1.4.5" data-path="../Gear/Tools.html">
+            
+                <a href="../Gear/Tools.html">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Gear/Travis-CI.html">
             
                 <a href="../Gear/Travis-CI.html">
             
                     
                     Travis CI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../Gear/Xcode.html">
+            
+                <a href="../Gear/Xcode.html">
+            
+                    
+                    Xcode
             
                 </a>
             
@@ -277,25 +316,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../Trick/Dev-Tools.html">
+        <li class="chapter " data-level="1.5.1" data-path="../Trick/Mac.html">
             
-                <a href="../Trick/Dev-Tools.html">
-            
-                    
-                    Dev Tools
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../Trick/Keymap.html">
-            
-                <a href="../Trick/Keymap.html">
+                <a href="../Trick/Mac.html">
             
                     
-                    Keymap
+                    Mac
             
                 </a>
             
@@ -439,19 +465,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.10" data-path="iOS-Performance-Promotion.html">
-            
-                <a href="iOS-Performance-Promotion.html">
-            
-                    
-                    iOS性能优化
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -529,6 +542,19 @@
 <h3 id="&#x7ED8;&#x5236;&#x9634;&#x5F71;&#x65F6;&#x907F;&#x514D;offscreen-rendered">&#x7ED8;&#x5236;&#x9634;&#x5F71;&#x65F6;&#x907F;&#x514D;<code>Offscreen-Rendered</code></h3>
 <p>&#x7ED8;&#x5236;&#x9634;&#x5F71;&#x6548;&#x679C;&#x65F6;&#xFF0C;&#x4E3A;layer&#x6307;&#x5B9A;shadowPath&#x53EF;&#x4EE5;&#x907F;&#x514D;<code>Offscreen-Rendered</code>:</p>
 <pre><code>view.layer.shadowPath = [UIBezierPath  bezierPathWithRect:view.bounds].CGPath;
+</code></pre><h3 id="uitableview-&#x6027;&#x80FD;&#x4F18;&#x5316;">UITableView &#x6027;&#x80FD;&#x4F18;&#x5316;</h3>
+<h4 id="&#x57FA;&#x672C;&#x5EFA;&#x8BAE;">&#x57FA;&#x672C;&#x5EFA;&#x8BAE;</h4>
+<ul>
+<li>cell&#x7684;prototype&#x8BBE;&#x8BA1;&#x5C3D;&#x91CF;&#x62BD;&#x8C61;&#x63D0;&#x9AD8;&#x590D;&#x7528;&#x5EA6;&#xFF1B;</li>
+<li>&#x51CF;&#x5C11;&#x9875;&#x9762;&#x5C42;&#x7EA7;&#x5173;&#x7CFB;&#xFF1B;</li>
+<li>&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;PNG&#x683C;&#x5F0F;&#xFF1B;</li>
+<li>&#x51CF;&#x5C11;&#x9875;&#x9762;&#x5C42;&#x7EA7;&#x5173;&#x7CFB;&#xFF1B;</li>
+</ul>
+<h3 id="self-sized-cell">Self-Sized Cell</h3>
+<p><code>Self-Sized Cell</code>&#x7684;tableView&#x7684;&#x601D;&#x8DEF;&#x662F;&#x5728;&#x8BA1;&#x7B97;&#x5C06;&#x8981;&#x5C55;&#x793A;&#x7684;cell&#x9AD8;&#x5EA6;&#x65F6;&#xFF0C;&#x4F1A;&#x9884;&#x5148;&#x6839;&#x636E;<code>estimated height</code>&#x9884;&#x5148;&#x8BBE;&#x7F6E;cell&#x7684;&#x9AD8;&#x5EA6;&#x548C;&#x8C03;&#x6574;&#x6EDA;&#x52A8;&#x6761;&#xFF0C;&#x7136;&#x540E;cell&#x901A;&#x8FC7;&#x81EA;&#x8EAB;&#x8BBE;&#x7F6E;&#x7684;&#x7EA6;&#x675F;&#x6765;&#x8C03;&#x6574;&#x81EA;&#x8EAB;<code>contentSize</code>&#x3002;
+&#x6B64;&#x601D;&#x8DEF;&#x7684;tableView&#x80FD;&#x76F4;&#x63A5;&#x4E3A;cell&#x7684;&#x9AD8;&#x5EA6;&#x8D4B;&#x503C;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8BBE;&#x7F6E;cell&#x7684;&#x9884;&#x4F30;&#x9AD8;&#x5EA6;&#x548C;&#x542F;&#x7528;&#x52A8;&#x6001;&#x5E03;&#x5C40;&#xFF1A;</p>
+<pre><code>tableView.estimatedRowHeight = 44.f;
+tableView.rowHeight = UITableViewAutomaticDimension;
 </code></pre>
                                 
                                 </section>
@@ -572,7 +598,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MEMO","level":"1.6.2","depth":2,"next":{"title":"Masonry","level":"1.6.3","depth":2,"path":"iOS/Masonry.md","ref":"iOS/Masonry.md","articles":[]},"previous":{"title":"CoreAnimation","level":"1.6.1","depth":2,"path":"iOS/CoreAnimation.md","ref":"iOS/CoreAnimation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"iOS/MEMO.md","mtime":"2017-02-10T12:59:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T13:01:03.346Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MEMO","level":"1.6.2","depth":2,"next":{"title":"Masonry","level":"1.6.3","depth":2,"path":"iOS/Masonry.md","ref":"iOS/Masonry.md","articles":[]},"previous":{"title":"CoreAnimation","level":"1.6.1","depth":2,"path":"iOS/CoreAnimation.md","ref":"iOS/CoreAnimation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"iOS/MEMO.md","mtime":"2017-02-10T14:34:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T14:35:25.640Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

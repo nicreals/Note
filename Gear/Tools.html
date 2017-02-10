@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dev Tools · GitBook</title>
+        <title>Tools · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Keymap.html" />
+    <link rel="next" href="Travis-CI.html" />
     
+    
+    <link rel="prev" href="Shell.html" />
     
 
     </head>
@@ -204,9 +206,22 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../Gear/Git.html">
+        <li class="chapter " data-level="1.4.1" data-path="Atom.html">
             
-                <a href="../Gear/Git.html">
+                <a href="Atom.html">
+            
+                    
+                    Atom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Git.html">
+            
+                <a href="Git.html">
             
                     
                     Git
@@ -217,9 +232,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../Gear/Gitbook.html">
+        <li class="chapter " data-level="1.4.3" data-path="Gitbook.html">
             
-                <a href="../Gear/Gitbook.html">
+                <a href="Gitbook.html">
             
                     
                     Gitbook
@@ -230,9 +245,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../Gear/Shell.html">
+        <li class="chapter " data-level="1.4.4" data-path="Shell.html">
             
-                <a href="../Gear/Shell.html">
+                <a href="Shell.html">
             
                     
                     Shell
@@ -243,12 +258,38 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../Gear/Travis-CI.html">
+        <li class="chapter active" data-level="1.4.5" data-path="Tools.html">
             
-                <a href="../Gear/Travis-CI.html">
+                <a href="Tools.html">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="Travis-CI.html">
+            
+                <a href="Travis-CI.html">
             
                     
                     Travis CI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="Xcode.html">
+            
+                <a href="Xcode.html">
+            
+                    
+                    Xcode
             
                 </a>
             
@@ -275,25 +316,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="Dev-Tools.html">
+        <li class="chapter " data-level="1.5.1" data-path="../Trick/Mac.html">
             
-                <a href="Dev-Tools.html">
-            
-                    
-                    Dev Tools
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="Keymap.html">
-            
-                <a href="Keymap.html">
+                <a href="../Trick/Mac.html">
             
                     
-                    Keymap
+                    Mac
             
                 </a>
             
@@ -437,19 +465,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.10" data-path="../iOS/iOS-Performance-Promotion.html">
-            
-                <a href="../iOS/iOS-Performance-Promotion.html">
-            
-                    
-                    iOS性能优化
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -485,7 +500,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Dev Tools</a>
+        <a href=".." >Tools</a>
     </h1>
 </div>
 
@@ -500,44 +515,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="dev-tools">Dev Tools</h1>
-<h2 id="gears">Gears</h2>
+                                <h1 id="tools">Tools</h1>
 <ul>
 <li><a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> - Mac&#x7AEF;&#x56FE;&#x7247;&#x538B;&#x7F29;GUI&#x5DE5;&#x5177;</li>
 <li><a href="https://github.com/tinymind/LSUnusedResources" target="_blank">LSUnusedResources</a> - &#x67E5;&#x627E;Xcode&#x5DE5;&#x7A0B;&#x4E2D;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x56FE;&#x7247;</li>
 </ul>
-<h2 id="appcode">AppCode</h2>
-<h3 id="vmoptions">vmoptions</h3>
-<p>AppCode&#x9ED8;&#x8BA4;.vmoptions&#x6587;&#x4EF6;&#x5728;~/Application/AppCode/bin/AppCode.vmoptions,&#x66F4;&#x6539;&#x8BE5;&#x6587;&#x4EF6;&#x4F1A;&#x6539;&#x53D8;AppCode&#x7684;&#x6587;&#x4EF6;&#x7B7E;&#x540D;&#xFF0C;&#x5E94;&#x5F53;&#x4F7F;&#x7528;<code>Help-Edit Custom VM Options</code>&#x6765;&#x66F4;&#x6539;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code># custom AppCode VM options
--Xss2m
--Xms256m
--Xmx4096m
--XX:NewSize=128m
--XX:MaxNewSize=256m
--XX:ReservedCodeCacheSize=192m
--XX:+UseCompressedOops
-</code></pre><h2 id="xcode">Xcode</h2>
-<h3 id="xcode-&#x8B66;&#x544A;">Xcode &#x8B66;&#x544A;</h3>
-<ul>
-<li>&#x5F00;&#x542F;&#x53EF;&#x4FE1;&#x5EA6;&#x8F83;&#x9AD8;&#x7684;&#x8B66;&#x544A;</li>
-</ul>
-<p>Build Setting -&gt; other c flags -&gt; <code>-Wall</code></p>
-<ul>
-<li>&#x5F00;&#x542F;&#x5927;&#x90E8;&#x5206;&#x8B66;&#x544A;</li>
-</ul>
-<p>Build Setting -&gt; other c flags -&gt; <code>-Wextra</code></p>
-<ul>
-<li>&#x5C4F;&#x853D;&#x7B2C;&#x4E09;&#x65B9;SDK<code>was built for newer iOS version</code>&#x8B66;&#x544A;</li>
-</ul>
-<p>Target -&gt; Build Setting -&gt; Other Linker Flag -&gt; <code>-w</code></p>
-<h2 id="&#x73AF;&#x5883;&#x53D8;&#x91CF;">&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2>
-<p>Edit Scheme -&gt; Arguments -&gt; Environment Variables</p>
-<h2 id="&#x89E3;&#x51B3;projectpbxproj&#x5408;&#x5E76;&#x51B2;&#x7A81;">&#x89E3;&#x51B3;project.pbxproj&#x5408;&#x5E76;&#x51B2;&#x7A81;</h2>
-<p>&#x5728;&#x5DE5;&#x7A0B;&#x66F4;&#x76EE;&#x5F55;&#x65B0;&#x5EFA;<code>.gitattributes</code>&#x6587;&#x4EF6;&#x5E76;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;:</p>
-<p><a href="http://roadfiresoftware.com/2015/09/automatically-resolving-git-merge-conflicts-in-xcodes-project-pbxproj/" target="_blank">Automatically resolving git merge conflicts in Xcode&apos;s project.pbxproj file</a></p>
-<pre><code>*.pbxproj text -crlf -diff -merge=union
-</code></pre>
+
                                 
                                 </section>
                             
@@ -564,8 +547,12 @@
 
             
                 
+                <a href="Shell.html" class="navigation navigation-prev " aria-label="Previous page: Shell">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Keymap.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Keymap">
+                
+                <a href="Travis-CI.html" class="navigation navigation-next " aria-label="Next page: Travis CI">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -576,7 +563,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dev Tools","level":"1.5.1","depth":2,"next":{"title":"Keymap","level":"1.5.2","depth":2,"path":"Trick/Keymap.md","ref":"Trick/Keymap.md","articles":[]},"previous":{"title":"Trick","level":"1.5","depth":1,"ref":"","articles":[{"title":"Dev Tools","level":"1.5.1","depth":2,"path":"Trick/Dev-Tools.md","ref":"Trick/Dev-Tools.md","articles":[]},{"title":"Keymap","level":"1.5.2","depth":2,"path":"Trick/Keymap.md","ref":"Trick/Keymap.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Trick/Dev-Tools.md","mtime":"2017-02-10T12:59:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T13:01:03.346Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tools","level":"1.4.5","depth":2,"next":{"title":"Travis CI","level":"1.4.6","depth":2,"path":"Gear/Travis-CI.md","ref":"Gear/Travis-CI.md","articles":[]},"previous":{"title":"Shell","level":"1.4.4","depth":2,"path":"Gear/Shell.md","ref":"Gear/Shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Gear/Tools.md","mtime":"2017-02-10T14:34:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T14:35:25.640Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
