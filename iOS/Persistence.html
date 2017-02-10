@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="RunLoop.html" />
     
-    
-    <link rel="prev" href="Objective-C.html" />
+    <link rel="prev" href="iOS Performance Promotion.html" />
     
 
     </head>
@@ -400,20 +398,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.7" data-path="Persistence.html">
-            
-                <a href="Persistence.html">
-            
-                    
-                    Persistence
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.8" data-path="RunLoop.html">
+        <li class="chapter " data-level="1.6.7" data-path="RunLoop.html">
             
                 <a href="RunLoop.html">
             
@@ -426,7 +411,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.9" data-path="Swift.html">
+        <li class="chapter " data-level="1.6.8" data-path="Swift.html">
             
                 <a href="Swift.html">
             
@@ -439,12 +424,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.10" data-path="iOS Performance Promotion.html">
+        <li class="chapter " data-level="1.6.9" data-path="iOS Performance Promotion.html">
             
                 <a href="iOS Performance Promotion.html">
             
                     
                     iOS性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.10" data-path="Persistence.html">
+            
+                <a href="Persistence.html">
+            
+                    
+                    Persistence
             
                 </a>
             
@@ -506,6 +504,35 @@
 <blockquote>
 <p><a href="http://www.jianshu.com/p/7616cbd72845" target="_blank">iOS&#x4E2D;&#x7684;&#x51E0;&#x79CD;&#x6301;&#x4E45;&#x5316;&#x65B9;&#x6848;</a></p>
 </blockquote>
+<h1 id="runloop">RunLoop</h1>
+<blockquote>
+<p><a href="http://www.cnblogs.com/6duxz/p/4633741.html" target="_blank">UIScrollView&#x6EDA;&#x52A8;&#x65F6;NSTimer&#x505C;&#x6B62;&#x95EE;&#x9898;</a></p>
+<p><a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" target="_blank">RunLoop&#x7B80;&#x4ECB;</a></p>
+</blockquote>
+<h2 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<p>&#x4E00;&#x79CD;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x662F;<code>Source</code>&#x548C;<code>Observer</code>&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5FAA;&#x73AF;&#x76D1;&#x542C;<code>Input Source</code>&#x548C;<code>Timer Source</code>&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x7EBF;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h2 id="runloop-&#x4E0E;&#x7EBF;&#x7A0B;">Runloop &#x4E0E;&#x7EBF;&#x7A0B;</h2>
+<p>Runloop &#x548C;&#x7EBF;&#x7A0B;&#x662F;&#x7ED1;&#x5B9A;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x3002;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF08;&#x5305;&#x62EC;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF09;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684; Runloop &#x5BF9;&#x8C61;&#x3002;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x80FD;&#x81EA;&#x5DF1;&#x521B;&#x5EFA; Runloop &#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x7684; Runloop &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x4E3B;&#x7EBF;&#x7A0B;&#x7684; Runloop &#x4F1A;&#x5728;&#x5E94;&#x7528;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5B8C;&#x6210;&#x542F;&#x52A8;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x7684; Runloop &#x9ED8;&#x8BA4;&#x5E76;&#x4E0D;&#x4F1A;&#x542F;&#x52A8;&#xFF0C;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x542F;&#x52A8;&#x3002;</p>
+<h2 id="input-source-&#x548C;-timer-source">Input Source &#x548C; Timer Source</h2>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x90FD;&#x662F; Runloop &#x4E8B;&#x4EF6;&#x7684;&#x6765;&#x6E90;&#xFF0C;&#x5176;&#x4E2D; Input Source &#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E09;&#x7C7B;</p>
+<ul>
+<li>Port-Based Sources&#xFF0C;&#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x7684; Port &#x4E8B;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982; CFSocketRef &#xFF0C;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x57FA;&#x672C;&#x7528;&#x4E0D;&#x5230;</li>
+<li>Custom Input Sources&#xFF0C;&#x7528;&#x6237;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x7684; Source</li>
+<li>Cocoa Perform Selector Sources&#xFF0C; Cocoa &#x63D0;&#x4F9B;&#x7684; performSelector &#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x4E8B;&#x4EF6;&#x6E90;</li>
+</ul>
+<p>Timer Source &#x987E;&#x540D;&#x601D;&#x4E49;&#x5C31;&#x662F;&#x6307;&#x5B9A;&#x65F6;&#x5668;&#x4E8B;&#x4EF6;&#x4E86;&#x3002;</p>
+<h2 id="runloop&#x5DE5;&#x4F5C;&#x7279;&#x70B9;&#xFF1A;">Runloop&#x5DE5;&#x4F5C;&#x7279;&#x70B9;&#xFF1A;</h2>
+<ul>
+<li><p>&#x5F53;&#x6709;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#xFF0C;Runloop&#x4F1A;&#x6839;&#x636E;&#x5177;&#x4F53;&#x7684;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x901A;&#x77E5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#xFF1B;</p>
+</li>
+<li><p>&#x5F53;&#x6CA1;&#x6709;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#xFF0C;Runloop&#x4F1A;&#x8FDB;&#x5165;&#x4F11;&#x7720;&#x72B6;&#x6001;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x7701;&#x7535;&#x7684;&#x76EE;&#x7684;&#xFF1B;</p>
+</li>
+<li><p>&#x5F53;&#x4E8B;&#x4EF6;&#x518D;&#x6B21;&#x53D1;&#x751F;&#x65F6;&#xFF0C;Runloop&#x4F1A;&#x88AB;&#x91CD;&#x65B0;&#x5524;&#x9192;&#xFF0C;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x3002;</p>
+</li>
+</ul>
+<h2 id="iscrollview&#x6EDA;&#x52A8;&#x65F6;nstimer&#x505C;&#x6B62;&#x95EE;&#x9898;">IScrollView&#x6EDA;&#x52A8;&#x65F6;NSTimer&#x505C;&#x6B62;&#x95EE;&#x9898;</h2>
+<p>&#x5F53;UIScrollView&#x6EDA;&#x52A8;&#x65F6;&#xFF0C;<code>MainRunLoop</code>&#x5904;&#x4E8E;<code>UITrackingRunLoopMode</code>&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x4F1A;&#x5904;&#x7406;<code>NSDefaultRunLoopMode</code>&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x521B;&#x5EFA;NSTimer&#x65F6;&#x5C06;&#x5176;&#x52A0;&#x5165;&#x5230;<code>forMode:NSRunLoopCommonModes</code>&#x5373;&#x53EF;</p>
 
                                 
                                 </section>
@@ -533,14 +560,10 @@
 
             
                 
-                <a href="Objective-C.html" class="navigation navigation-prev " aria-label="Previous page: Objective- C">
+                <a href="iOS Performance Promotion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: iOS性能优化">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="RunLoop.html" class="navigation navigation-next " aria-label="Next page: RunLoop">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -549,7 +572,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Persistence","level":"1.6.7","depth":2,"next":{"title":"RunLoop","level":"1.6.8","depth":2,"path":"iOS/RunLoop.md","ref":"iOS/RunLoop.md","articles":[]},"previous":{"title":"Objective- C","level":"1.6.6","depth":2,"path":"iOS/Objective-C.md","ref":"iOS/Objective-C.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"iOS/Persistence.md","mtime":"2017-02-10T10:08:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T10:09:05.369Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Persistence","level":"1.6.10","depth":2,"previous":{"title":"iOS性能优化","level":"1.6.9","depth":2,"path":"iOS/iOS Performance Promotion.md","ref":"iOS/iOS Performance Promotion.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"iOS/Persistence.md","mtime":"2017-02-10T10:07:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T10:09:08.508Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
