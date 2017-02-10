@@ -1,4 +1,6 @@
-cache: npm
+cache:
+    directories:
+  - node_modules # NPM packages
 before_install:
 - "./Scripts/dependences.sh"
 script:
