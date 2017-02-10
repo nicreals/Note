@@ -20,9 +20,9 @@ cd ${BLOG_DIRECTORY}/_book
 git init
 git config user.email "nic.reals@outlook.com"
 git config user.name "nic_reals"
-git remote add origin https://GreedBell:${GITHUB_API_KEY}@${GITHUB_REF}
-git fetch upstream
-git reset upstream/gh-pages
+git remote add origin https://nicreals:${GITHUB_API_KEY}@${GITHUB_REF}
+git fetch origin
+git reset origin/gh-pages
 git add . --all
 git commit -m "Deploy to GitHub Pages by travis"
 git push -q upstream HEAD:gh-pages

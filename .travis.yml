@@ -1,7 +1,4 @@
 before_install:
-- chmod +x ./scripts/dependences.sh
-- chmod +x ./scripts/build.sh
-- chmod +x ./scripts/deploy.sh
 - "./scripts/dependences.sh"
 script:
 - "travis_wait 30 sh ./scripts/build.sh"
