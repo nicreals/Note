@@ -1,5 +1,6 @@
 # Note
 
+* [CoreAnimation](/CoreAnimation.md)
 * [Design Pattern](/Design Pattern.md)
 * [Dev Tools](/Dev Tools.md)
 * [Git](/Git.md)
@@ -9,10 +10,13 @@
 * [Keymap](/Keymap.md)
 * [Masonry](/Masonry.md)
 * [MEMO](/MEMO.md)
+* [Memory Management](/Memory Management.md)
 * [MultiThread](/MultiThread.md)
 * [Network](/Network.md)
 * [Objective-C](/Objective-C.md)
+* [Persistence](/Persistence.md)
 * [React Native](/React Native.md)
 * [RunLoop](/RunLoop.md)
+* [scripts](/scripts)
 * [Shell](/Shell.md)
 * [Swift](/Swift.md)
