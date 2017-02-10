@@ -7,13 +7,15 @@
     * [JavaScript](/Front/JavaScript.md)
     * [React Native](/Front/React-Native.md)
 * Gear
+    * [Atom](/Gear/Atom.md)
     * [Git](/Gear/Git.md)
     * [Gitbook](/Gear/Gitbook.md)
     * [Shell](/Gear/Shell.md)
+    * [Tools](/Gear/Tools.md)
     * [Travis CI](/Gear/Travis-CI.md)
+    * [Xcode](/Gear/Xcode.md)
 * iOS
     * [CoreAnimation](/iOS/CoreAnimation.md)
-    * [iOS性能优化](/iOS/iOS-Performance-Promotion.md)
     * [Masonry](/iOS/Masonry.md)
     * [MEMO](/iOS/MEMO.md)
     * [Memory Management](/iOS/Memory-Management.md)
@@ -23,5 +25,4 @@
     * [RunLoop](/iOS/RunLoop.md)
     * [Swift](/iOS/Swift.md)
 * Trick
-    * [Dev Tools](/Trick/Dev-Tools.md)
-    * [Keymap](/Trick/Keymap.md)
+    * [Mac](/Trick/Mac.md)

@@ -1,5 +1,16 @@
 # Shell
 
+> [Shell常用快捷键](https://github.com/hokein/Wiki/wiki/Bash-Shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE)
+
+## 常用快捷键
+
+Descriptions |    ShortCut
+:----------- | :-------------:
+删除光标左边所有 | ⌃ + U
+删除光标右边所有 | ⌃ + K
+移动光标到行首 | ⌃ + A
+移动光标到行尾 | ⌃ + E
+
 ## 常用命令
 
 ```
