@@ -32,6 +32,6 @@ Timer Source 顾名思义就是指定时器事件了。
 
 - 当事件再次发生时，Runloop会被重新唤醒，处理事件。
 
-## IScrollView滚动时NSTimer停止问题
+## ScrollView滚动时NSTimer停止问题
 
 当UIScrollView滚动时，`MainRunLoop`处于`UITrackingRunLoopMode`模式下，此时不会处理`NSDefaultRunLoopMode`的消息，创建NSTimer时将其加入到`forMode:NSRunLoopCommonModes`即可

@@ -34,7 +34,7 @@ Descriptions |    ShortCut
 
 ## 更改样式
 
-- 实用`⌘ + ⌥ + I`快捷键打开开发者工具，调试找出想要修改元素对应的css节点
+- 使用`⌘ + ⌥ + I`快捷键打开开发者工具，调试找出想要修改元素对应的css节点
 - 在菜单栏中`Atom`->`Stylesheet...`打开`styless.less`修改样式；
 
 示例：
