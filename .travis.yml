@@ -1,4 +1,8 @@
-cache: npm
+language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
 before_install:
 - "./Scripts/dependences.sh"
 script:
