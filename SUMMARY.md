@@ -1,4 +1,4 @@
-# NicReals`s Note
+# Note
 
 * CS
     * [Design Pattern](/CS/Design Pattern.md)
