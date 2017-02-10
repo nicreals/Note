@@ -41,9 +41,7 @@ greed-summary
 
 ## 集成Travis CI
 
-### 集成Travis CI
-
-配置Travis CI参考:[Travis CI](./Travis CI.md)
+配置Travis CI参考:[Travis CI](Travis CI.html)
 
 在项目根目录新建`.travis.yml`:
 

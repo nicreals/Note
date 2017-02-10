@@ -116,7 +116,7 @@ CONNECT |	把请求连接转换到透明的 TCP/IP 通道。
 - 第二次握手：服务器收到`SYN`报文段。服务器收到客户端的`SYN`报文段，需要对这个`SYN`报文段进行确认，设置`Acknowledgment Number`为x+1(`Sequence Number`+1)；同时，自己自己还要发送`SYN`请求信息，将`SYN`位置为1，`Sequence Number`为y；服务器端将上述所有信息放到一个报文段（即`SYN`+`ACK`报文段）中，一并发送给客户端，此时服务器进入`SYN_RECV`状态；
 - 第三次握手：客户端收到服务器的`SYN`+`ACK`报文段。然后将`Acknowledgment Number`设置为y+1，向服务器发送`ACK`报文段，这个报文段发送完毕以后，客户端和服务器端都进入ESTABLISHED状态，完成TCP三次握手。
 
-![tcp_connect](./IMG/tcp_connect.png)
+![tcp_connect](../IMG/tcp_connect.png)
 
 ### 四次分手
 
@@ -129,8 +129,8 @@ CONNECT |	把请求连接转换到透明的 TCP/IP 通道。
 
 ### OSI结构
 
-![osi_struct](./IMG/osi_struct.png)
+![osi_struct](../IMG/osi_struct.png)
 
 ### TCP/IP结构
 
-![tcp_struct](./IMG/tcp_struct.png)
+![tcp_struct](../IMG/tcp_struct.png)

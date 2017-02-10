@@ -40,4 +40,4 @@ next method         |         ⌥ + up
 多选                 |       ⌥ + ⇧
 选择当前单词下次出现的位置       |         ⌃ + G
 
-![img](./IMG/apcode_tool_windows.png)
+![img](../IMG/apcode_tool_windows.png)

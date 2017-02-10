@@ -11,7 +11,7 @@
 ## MVC模式
 理想状态下的`MVC`结构：
 
-![mvc_struct](./IMG/mvc_struct.png)
+![mvc_struct](../IMG/mvc_struct.png)
 
 模型会把任何数据的变更通知控制器，然后控制器更新视图数据。视图对象通知控制器用户的操作，控制器要么根据需要来更新模型，要么检索任何被请求的数据。
 
@@ -25,7 +25,7 @@
 
 ## MVP模式
 
-![mvp_struct](./IMG/mvp_struct.png)
+![mvp_struct](../IMG/mvp_struct.png)
 
 `MVP`模式将`Controller`变为`Presenter`,同时各组件之间的通信方向发生改变。
 
@@ -36,7 +36,7 @@
 
 ## MMVM模式
 
-![mmvm_struct](./IMG/mmvm_struct.png)
+![mmvm_struct](../IMG/mmvm_struct.png)
 
 ## 单例模式
 

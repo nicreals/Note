@@ -24,7 +24,7 @@
 
 - objc_msgSend
 
-![metaclass](./IMG/runtime_metaclass.png)
+![metaclass](../IMG/runtime_metaclass.png)
 
 - Method Swizzling
 
