@@ -1,0 +1,11 @@
+./SUMMARY.md
+[0;36minfo:[0m 7 plugins are installed 
+[0;36minfo:[0m 6 explicitly listed 
+[0;36minfo:[0m loading plugin "highlight"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "search"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "lunr"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "sharing"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "fontsettings"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "theme-default"... [0;32mOK[0m 
+[0;36minfo:[0m found 21 pages 
+[0;36minfo:[0m found 15 asset files 
