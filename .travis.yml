@@ -1,3 +1,4 @@
+cache: npm
 before_install:
 - "./Scripts/dependences.sh"
 script:
