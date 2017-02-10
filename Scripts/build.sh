@@ -15,7 +15,7 @@ BLOG_DIRECTORY=${SCRIPT_DIR}/..
 
 cd ${BLOG_DIRECTORY}
 
-greed-summary -t 'Note' -i ['IMG'，'_book','scripts'] -S gitbook -a
+greed-summary -t 'Note' -i ['IMG'，'_book','Scripts'] -S gitbook -a
 
 cp ${BLOG_DIRECTORY}/SUMMARY.md ${BLOG_DIRECTORY}/README.md
 
