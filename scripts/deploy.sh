@@ -1,3 +1,8 @@
+#!/bin/bash
+#author: Nic
+#
+# 推送html代码到gh-pages分支
+#
 # 当前目录
 CURRENT_DIR=${PWD}
 
