@@ -1,0 +1,25 @@
+{
+    "title": "Nic's notes",
+    "author": "Nic",
+    "description": "a boy's treasure",
+    "plugins": [
+        "github"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/nicreals"
+        },
+        "sharing": {
+            "facebook": false,
+            "twitter": false,
+            "google": false,
+            "weibo": false,
+            "instapaper": false,
+            "vk": false,
+            "all": [
+                "facebook", "google", "twitter",
+                "weibo", "instapaper"
+            ]
+        }
+    }
+}
