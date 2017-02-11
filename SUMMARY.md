@@ -16,12 +16,12 @@
     * [Xcode](/Gear/Xcode.md)
 * iOS
     * [CoreAnimation](/iOS/CoreAnimation.md)
+    * [iOS Devices](/iOS/iOS-Devices.md)
     * [Masonry](/iOS/Masonry.md)
     * [MEMO](/iOS/MEMO.md)
     * [Memory Management](/iOS/Memory-Management.md)
     * [MultiThread](/iOS/MultiThread.md)
     * [Objective- C](/iOS/Objective-C.md)
-    * [Persistence](/iOS/Persistence.md)
     * [RunLoop](/iOS/RunLoop.md)
     * [Swift](/iOS/Swift.md)
 * Trick

@@ -21,6 +21,19 @@ language: objective-c
 osx_image: xcode8.2
 ```
 
+## 启用缓存功能(实验性)
+
+[官方文档](https://docs.travis-ci.com/user/caching/)
+
+示例：
+```
+language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
+  ```
+
 ## 设置邮件通知
 
 ```

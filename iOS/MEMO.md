@@ -19,6 +19,7 @@
 * [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/)
 * [优化UITableViewCell高度计算的那些事](http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/)
 * [深入理解RunLoop](http://blog.ibireme.com/2015/05/18/runloop/)
+* [iOS中的几种持久化方案](http://www.jianshu.com/p/7616cbd72845)
 
 ## Tips
 
