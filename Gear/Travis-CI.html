@@ -426,20 +426,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.7" data-path="../iOS/Persistence.html">
-            
-                <a href="../iOS/Persistence.html">
-            
-                    
-                    Persistence
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.8" data-path="../iOS/RunLoop.html">
+        <li class="chapter " data-level="1.6.7" data-path="../iOS/RunLoop.html">
             
                 <a href="../iOS/RunLoop.html">
             
@@ -452,7 +439,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.9" data-path="../iOS/Swift.html">
+        <li class="chapter " data-level="1.6.8" data-path="../iOS/Swift.html">
             
                 <a href="../iOS/Swift.html">
             
@@ -465,21 +452,21 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.9" data-path="../iOS/iOS-Devices.html">
+            
+                <a href="../iOS/iOS-Devices.html">
+            
+                    
+                    iOS Devices
+            
+                </a>
+            
 
-            </ul>
             
         </li>
     
-        <li class="chapter " data-level="1.7" >
-            
-                <span>
-            
-                    
-                    node_modules
-            
-                </span>
-            
 
+            </ul>
             
         </li>
     
@@ -544,6 +531,14 @@
 <p>&#x5177;&#x4F53;Xcode&#x7248;&#x672C;&#x4E0E;Mac OS&#x7248;&#x672C;&#x7EC6;&#x8282;&#x53C2;&#x8003;<a href="https://docs.travis-ci.com/user/osx-ci-environment/" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
 <pre><code>language: objective-c
 osx_image: xcode8.2
+</code></pre><h2 id="&#x542F;&#x7528;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x5B9E;&#x9A8C;&#x6027;">&#x542F;&#x7528;&#x7F13;&#x5B58;&#x529F;&#x80FD;(&#x5B9E;&#x9A8C;&#x6027;)</h2>
+<p><a href="https://docs.travis-ci.com/user/caching/" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code>language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
 </code></pre><h2 id="&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x901A;&#x77E5;">&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x901A;&#x77E5;</h2>
 <pre><code>notifications:
   slack:
@@ -592,7 +587,7 @@ osx_image: xcode8.2
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Travis CI","level":"1.4.6","depth":2,"next":{"title":"Xcode","level":"1.4.7","depth":2,"path":"Gear/Xcode.md","ref":"Gear/Xcode.md","articles":[]},"previous":{"title":"Tools","level":"1.4.5","depth":2,"path":"Gear/Tools.md","ref":"Gear/Tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Gear/Travis-CI.md","mtime":"2017-02-10T15:47:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-10T15:48:43.416Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Travis CI","level":"1.4.6","depth":2,"next":{"title":"Xcode","level":"1.4.7","depth":2,"path":"Gear/Xcode.md","ref":"Gear/Xcode.md","articles":[]},"previous":{"title":"Tools","level":"1.4.5","depth":2,"path":"Gear/Tools.md","ref":"Gear/Tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Gear/Travis-CI.md","mtime":"2017-02-11T08:15:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-11T08:17:33.847Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
