@@ -6,6 +6,18 @@
 
 > [深入理解循环引用，weakSelf，strongSelf](http://ios.jobbole.com/88708/)
 
+## 堆栈
+
+- 栈：由系统自动分配，一般存放函数参数值，局部变量值等，由编译器自动创建和释放，操作方式类似数据结构中的栈，遵循先进后出原则；
+
+- 堆：一般由程序员申请并指明大小，最终也由程序员释放。如果程序员不释放，程序结束时可能会由OS回收。对于堆区的管理是采用链表式管理的，操作系统有一个记录空闲内存地址的链表，当接收到程序分配内存的申请时，操作系统就会遍历该链表，遍历到一个记录的内存地址大于申请内存的链表节点，并将该节点从该链表中删除，然后将该节点记录的内存地址分配给程序；
+
+- 全局区/静态区：顾名思义，全局变量和静态变量存储在这个区域。只不过初始化的全局变量和静态变量存储在一块，未初始化的全局变量和静态变量存储在一块。程序结束后由系统释放；
+
+- 文字常量区：这个区域主要存储字符串常量。程序结束后由系统释放；
+
+- 程序代码区：这个区域主要存放函数体的二进制代码。
+
 ## ARC & MRC
 
 ### MRC
@@ -13,11 +25,11 @@
 MRC对象操作及`retainCount`变化：
 
 对象操作 | OC中对应的方法 | retainCount 变化
-:----------- | :------------- | : -------------:
-生成并持有对象 | alloc/new/copy/mutableCopy等 |	+1
-持有对象 |	retain |	+1
-释放对象 |	release	| -1
-废弃对象 |	dealloc |	-
+:----------- |:----------- |:----------- |
+生成并持有对象 | alloc/new/copy/mutableCopy等 |<center>	+1 </center>
+持有对象 |	retain |  <center>	+1 </center>
+释放对象 |	release	| <center>	-1 </center>
+废弃对象 |	dealloc | <center>	- </center>
 
 四个对象操作法则:
 
@@ -54,17 +66,12 @@ typedef void(^Study)();
 #import "ViewController.h"
 #import "Student.h"
 
-@interface ViewController ()
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     Student *student = [[Student alloc]init];
     student.name = @"Hello World";
-
     student.study = ^{
         NSLog(@"my name is = %@",student.name);
     };
@@ -76,10 +83,10 @@ typedef void(^Study)();
 ### weakSelf避免循环引用
 
 ```
-    __weak typeof(student) weakSelf = student;
-    student.study = ^{
-        NSLog(@"my name is = %@",weakSelf.name);
-    };
+__weak typeof(student) weakSelf = student;
+student.study = ^{
+    NSLog(@"my name is = %@",weakSelf.name);
+};
 ```
 `__weak`定义了一种非拥有关系，当`weakSelf`指向的对象`student`销毁时，`weakSelf`会被置为nil，不会造成循环引用；
 
@@ -89,27 +96,19 @@ typedef void(^Study)();
 #import "ViewController.h"
 #import "Student.h"
 
-@interface ViewController ()
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     Student *student = [[Student alloc]init];
-
     student.name = @"Hello World";
     __weak typeof(student) weakSelf = student;
-
     student.study = ^{
         __strong typeof(student) strongSelf = weakSelf;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSLog(@"my name is = %@",strongSelf.name);
         });
-
     };
-
     student.study();
 }
 ```
@@ -129,3 +128,25 @@ __weak typeof(student) weakSelf = student;
    };
 ```
 当`student.study()`执行，由于`__strong`定义了拥有关系，`strongSelf`指向`student`对象的内存地址，并且保留了对`student`的引用，此时`strongSelf`不会被销毁，当block调用完，`strongSelf`作为临时变量被销毁，没有指针指向`student`对象，`student`也被销毁，所以也不会造成循环引用。
+
+## 浅拷贝&深拷贝
+
+### 定义
+
+- 浅拷贝：只是复制容器本身，不会复制容器内部的元素，浅拷贝后生成的新容器对象和原始容器对象共享内部元素；
+
+- 深拷贝：不仅复制容器本身，容器内部的元素也会复制，深拷贝后生成的新容器对象和原始容器的内部元素是独立的；
+
+### copy && mutableCopy
+
+- 使用mutableCopy拷贝出的对象都会与被拷贝对象指向不同对象；使用copy拷贝出的对象若被拷贝对象是不可变对象，则指向同一对象，若被拷贝对象为不可变对象，则指向不同对象。
+
+- 对于集合类对象，使用mutableCopy，copy操作都是浅拷贝，即使拷贝出的对象内存地址不同，但集合内部元素内存地址相同。
+
+- 使用`initWithArray: copyItems:`拷贝出的对象只能实现单层深复制，完全深复制可以使用归档和解档：
+
+  ```
+  copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:array]];
+  ```
+
+- 可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。

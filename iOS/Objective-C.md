@@ -8,18 +8,6 @@
 
 ## Foundation
 
-### 堆栈（系统）
-
-- 栈：由系统自动分配，一般存放函数参数值，局部变量值等，由编译器自动创建和释放，操作方式类似数据结构中的栈，遵循先进后出原则；
-
-- 堆：一般由程序员申请并指明大小，最终也由程序员释放。如果程序员不释放，程序结束时可能会由OS回收。对于堆区的管理是采用链表式管理的，操作系统有一个记录空闲内存地址的链表，当接收到程序分配内存的申请时，操作系统就会遍历该链表，遍历到一个记录的内存地址大于申请内存的链表节点，并将该节点从该链表中删除，然后将该节点记录的内存地址分配给程序；
-
-- 全局区/静态区：顾名思义，全局变量和静态变量存储在这个区域。只不过初始化的全局变量和静态变量存储在一块，未初始化的全局变量和静态变量存储在一块。程序结束后由系统释放；
-
-- 文字常量区：这个区域主要存储字符串常量。程序结束后由系统释放；
-
-- 程序代码区：这个区域主要存放函数体的二进制代码。
-
 ### Runtime
 
 - objc_msgSend
@@ -40,66 +28,18 @@ Objective-C中集合类簇实际对应的对象类型。
 
 类                   |      对应的类簇
 :------------------ | :-------------:
-NSArray             |   __NSArrayI
-NSMutableArray      |   __NSArrayM
-NSDictionary        | __NSDictionaryI
-NSMutableDictionary | __NSDictionaryM
+NSArray             |   `__NSArrayI`
+NSMutableArray      |   `__NSArrayM`
+NSDictionary        | `__NSDictionaryI`
+NSMutableDictionary | `__NSDictionaryM`
 
-### block
 
-#### 定义
-
-```
-int (^multiBlock) (int) = ^(int intVar) {
-  return intVar * 2;
-}
-```
-
-#### block中使用变量
-
-在block中直接使用局部变量相当于copy一份到block内部，block不能更改变量的值，也不能实时监测到变量值的改变，除非该变量为全局变量或者给该变量加上`__block`标记.
-
-#### block的递归调用
-
-sblock要递归调用，block本身必须是全局变量或者是静态常量：
-
-```
-static void(^ const block)(int) = ^(int i) {
-  if (i > 0) {
-    NSLog(@"%d",i);
-    block(i - 1);
-  }
-}
-block(4);
-```
 
 ### ARC
 
 - 只要一个对象被任意strong指针指向，那么他将不会被摧毁，如果对象没有strong指针指向，那没就会被摧毁；
 
 - 若一个对象没有指向它的strong指针，所有指向该对象的weak指针将被置为nil，避免EXC_BAD_ACCESS;
-
-### shadowCopy && deepCopy
-
-#### 定义
-
-- 浅拷贝：只是复制容器本身，不会复制容器内部的元素，浅拷贝后生成的新容器对象和原始容器对象共享内部元素；
-
-- 深拷贝：不仅复制容器本身，容器内部的元素也会复制，深拷贝后生成的新容器对象和原始容器的内部元素是独立的；
-
-#### copy && mutableCopy
-
-- 使用mutableCopy拷贝出的对象都会与被拷贝对象指向不同对象；使用copy拷贝出的对象若被拷贝对象是不可变对象，则指向同一对象，若被拷贝对象为不可变对象，则指向不同对象。
-
-- 对于集合类对象，使用mutableCopy，copy操作都是浅拷贝，即使拷贝出的对象内存地址不同，但集合内部元素内存地址相同。
-
-- 使用`initWithArray: copyItems:`拷贝出的对象只能实现单层深复制，完全深复制可以使用归档和解档：
-
-  ```
-  copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:array]];
-  ```
-
-- 可变对象属性用copy修饰，当该对象调用setter方法赋值时，实际会先调用copy生成不可变对象，然后再赋值给该属性，该变量实际会变成不可变对象，调用可变对象方法会crash。
 
 ### Equality
 
@@ -134,26 +74,6 @@ BOOL wtf = (a == b); // YES
 NSString *c = [NSString stringWithFormat:@"Hello"];
 BOOL ass = (a == c); // NO
 ```
-
-### weakSelf && strongSelf
-
-```
-[UIView animateWithDuration:0.2 animations:^{
-    self.myView.alpha = 1.0;
-}];
-```
-
-block执行期间self 不会被摧毁，不需要使用weakSelf，strongSelf；
-
-```
-__weak __typeof__(self) weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [weakSelf doSomething];
-    [weakSelf doOtherThing];
-});
-```
-
-block执行结束期间self是否被销毁未知，使用weakSelf可避免self，block循环引用，造成内存泄露，使用strongSelf可保证在block内部，self不会为nil；
 
 ### 泛型
 
