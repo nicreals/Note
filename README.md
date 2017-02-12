@@ -1,4 +1,4 @@
-# Note
+# Nic's notes
 
 * CS
     * [Design Pattern](/CS/Design-Pattern.md)
@@ -26,9 +26,6 @@
     * [Performance](/iOS/Performance.md)
     * [RunLoop](/iOS/RunLoop.md)
     * [Swift](/iOS/Swift.md)
-* node_modules
-    * [# plugin-github](/node_modules/gitbook-plugin-github/README.md)
-        * assets
 * Trick
     * [Mac](/Trick/Mac.md)
     * [Markdown](/Trick/Markdown.md)

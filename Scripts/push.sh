@@ -4,7 +4,7 @@
 # 推送markdown文件到master分支
 #
 
-greed-summary -t 'Note' -i ['IMG'，'_book','Scripts'] -S gitbook -a
+greed-summary -t "Nic's notes" -i ['IMG'，'_book','Scripts','node_modules'] -S gitbook -a
 
 cp SUMMARY.md README.md
 
