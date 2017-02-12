@@ -1,4 +1,4 @@
-# Objective- C
+# Objective-C
 
 > [NSString特性分析学习](https://blog.cnbluebox.com/blog/2014/04/16/nsstringte-xing-fen-xi-xue-xi/)
 

@@ -30,7 +30,7 @@
 
 ## 优先级
 
-每个约束的默认优先级为priorityHigh(),一个view一个属性有两个约束，会有限对优先级高的那个进行约束；
+每个约束的默认优先级为priorityHigh(),一个view一个属性有两个约束，会优先对优先级高的那个进行约束；
 
 ```
 [view mas_makeConstraints:^(MASConstraintMaker *make) {
