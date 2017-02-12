@@ -3,7 +3,8 @@
     "author": "Nic",
     "description": "a boy's treasure",
     "plugins": [
-        "github"
+        "github",
+        "katex"
     ],
     "pluginsConfig": {
         "github": {
