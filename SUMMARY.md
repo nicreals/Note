@@ -17,13 +17,14 @@
 * iOS
     * [Animation](/iOS/Animation.md)
     * [Block](/iOS/Block.md)
+    * [Debug](/iOS/Debug.md)
     * [iOS Devices](/iOS/iOS-Devices.md)
     * [Masonry](/iOS/Masonry.md)
     * [MEMO](/iOS/MEMO.md)
     * [Memory Management](/iOS/Memory-Management.md)
     * [MultiThread](/iOS/MultiThread.md)
     * [Objective-C](/iOS/Objective-C.md)
-    * [Performance](/iOS/Performance.md)
+    * [Performance Optimize](/iOS/Performance.md)
     * [RunLoop](/iOS/RunLoop.md)
     * [Swift](/iOS/Swift.md)
 * Trick

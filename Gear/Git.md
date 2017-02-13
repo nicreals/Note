@@ -17,7 +17,7 @@ git config --global --unset http.proxy // 撤销http代理设置
 
 - 删除远程分支
 ```
-git push origin :{branch} // 注意冒号的书写位置
+git push origin --delete {branch} // 注意冒号的书写位置
 ```
 
 - 初始化Git仓库

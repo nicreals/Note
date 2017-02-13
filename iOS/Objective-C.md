@@ -33,14 +33,6 @@ NSMutableArray      |   `__NSArrayM`
 NSDictionary        | `__NSDictionaryI`
 NSMutableDictionary | `__NSDictionaryM`
 
-
-
-### ARC
-
-- 只要一个对象被任意strong指针指向，那么他将不会被摧毁，如果对象没有strong指针指向，那没就会被摧毁；
-
-- 若一个对象没有指向它的strong指针，所有指向该对象的weak指针将被置为nil，避免EXC_BAD_ACCESS;
-
 ### Equality
 
 一个`isEqual`的判断示例:

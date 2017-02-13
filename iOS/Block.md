@@ -14,7 +14,7 @@ int (^multiBlock) (int) = ^(int intVar) {
 
 ## block的递归调用
 
-sblock要递归调用，block本身必须是全局变量或者是静态常量：
+block要递归调用，block本身必须是全局变量或者是静态常量：
 
 ```
 static void(^ const block)(int) = ^(int i) {
