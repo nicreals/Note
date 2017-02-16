@@ -10,6 +10,8 @@
     * [Atom](/Gear/Atom.md)
     * [Git](/Gear/Git.md)
     * [Gitbook](/Gear/Gitbook.md)
+    * [Mac](/Gear/Mac.md)
+    * [Markdown](/Gear/Markdown.md)
     * [Shell](/Gear/Shell.md)
     * [Tools](/Gear/Tools.md)
     * [Travis CI](/Gear/Travis-CI.md)
@@ -26,7 +28,7 @@
     * [Objective-C](/iOS/Objective-C.md)
     * [Performance Optimize](/iOS/Performance.md)
     * [RunLoop](/iOS/RunLoop.md)
+    * [Runtime](/iOS/Runtime.md)
     * [Swift](/iOS/Swift.md)
 * Trick
-    * [Mac](/Trick/Mac.md)
-    * [Markdown](/Trick/Markdown.md)
+    * [Interview](/Trick/Interview.md)

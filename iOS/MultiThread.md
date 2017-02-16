@@ -10,7 +10,68 @@
 >
 > [iOS-多线程详解](http://www.jianshu.com/p/f28a50f72bb1)
 
+> [iOS 线程安全](http://www.jianshu.com/p/e7e44dfb1d2b)
+
 ## Before Everything
+
+### `dispatch_barrier_async`与线程安全
+
+据说这样性能更高：
+
+```
+static NSString *_name;
+static dispatch_queue_t _concurrentQueue;
+@implementation ZYPerson
+- (instancetype)init
+{
+    if (self = [super init]) {
+       _concurrentQueue = dispatch_queue_create("com.person.syncQueue", DISPATCH_QUEUE_CONCURRENT);
+    }
+    return self;
+}
+- (void)setName:(NSString *)name
+{
+    dispatch_barrier_async(_concurrentQueue, ^{
+        _name = [name copy];
+    });
+}
+- (NSString *)name
+{
+    __block NSString *tempName;
+    dispatch_sync(_concurrentQueue, ^{
+        tempName = _name;
+    });
+    return tempName;
+}
+```
+
+### GCD Timer
+
+使用NSTimer，RunLoop实现timer有如下弊端：
+
+1. 必须保证有一个活跃的RunLoop，若将逻辑放在子线程执行，子线程RunLoop默认关闭，必须手动激活才能是`performSelector`和`scheduledTimerWithTimeInterva`l的调用生效；
+2. NSTimer的创建，撤销必须在同一线程操作，performSelector的创建与撤销必须在同一个线程操作；
+3. 容易出现内存泄露，当一个timer被schedule的时候，timer会持有target对象，NSRunLoop对象会持有timer，除了调用invalidate以外没有任何方法可以让NSRunLoop对象会释放对timer的持有，timer会释放对target的持有。
+
+一个简单的GCD Timer实现：
+
+```
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+
+    });
+
+    dispatch_source_set_cancel_handler(timer, ^{
+        NSLog(@"cancel");
+        dispatch_release(timer);
+    });
+    //启动timer
+    dispatch_resume(timer);
+    // 取消timer
+    dispatch_source_cancel(timer);
+```
 
 ### 同步与异步，串行与并行
 
@@ -401,31 +462,3 @@ dispatch_group_t group = dispatch_group_create();
 ```
 
 运行结果：每2秒执行10此。
-
-### GCD Timer
-
-使用NSTimer，RunLoop实现timer有如下弊端：
-
-1. 必须保证有一个活跃的RunLoop，若将逻辑放在子线程执行，子线程RunLoop默认关闭，必须手动激活才能是`performSelecto`r和`scheduledTimerWithTimeInterva`l的调用生效；
-2. NSTimer的创建，撤销必须在同一线程操作，performSelector的创建与撤销必须在同一个线程操作；
-3. 容易出现内存泄露，当一个timer被schedule的时候，timer会持有target对象，NSRunLoop对象会持有timer，除了调用invalidate以外没有任何方法可以让NSRunLoop对象会释放对timer的持有，timer会释放对target的持有。
-
-一个简单的GCD Timer实现：
-
-```
-dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(timer, ^{
-
-    });
-
-    dispatch_source_set_cancel_handler(timer, ^{
-        NSLog(@"cancel");
-        dispatch_release(timer);
-    });
-    //启动timer
-    dispatch_resume(timer);
-    // 取消timer
-    dispatch_source_cancel(timer);
-```
