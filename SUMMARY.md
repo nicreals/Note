@@ -8,6 +8,7 @@
     * [React Native](/Front/React-Native.md)
 * Gear
     * [Atom](/Gear/Atom.md)
+    * [Cocoapods](/Gear/Cocoapods.md)
     * [Git](/Gear/Git.md)
     * [Gitbook](/Gear/Gitbook.md)
     * [Mac](/Gear/Mac.md)

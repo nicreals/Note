@@ -12,7 +12,7 @@
 
 构建多Architecture包:
 
-```
+```bash
 #!/bin/sh
 
 PROJECT_NAME="Framework Name"
