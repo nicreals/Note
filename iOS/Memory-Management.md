@@ -55,7 +55,7 @@ ARC是一种自动内存管理机制，会根据引用计数自动监视对象�
 ## 循环引用
 
 ### 一个循环引用的栗子
-```
+```objectivec
 typedef void(^Study)();
 @interface Student : NSObject
 @property (copy , nonatomic) NSString *name;
@@ -82,7 +82,7 @@ typedef void(^Study)();
 
 ### weakSelf避免循环引用
 
-```
+```objectivec
 __weak typeof(student) weakSelf = student;
 student.study = ^{
     NSLog(@"my name is = %@",weakSelf.name);
@@ -92,7 +92,7 @@ student.study = ^{
 
 ### strongSelf避免提前释放
 
-```
+```objectivec
 #import "ViewController.h"
 #import "Student.h"
 
@@ -113,11 +113,11 @@ student.study = ^{
 }
 ```
 此时由于`dispatch_after`2秒的异步延迟，`student.study()`会先于NSLog调用，`student.study()`执行完后，`student`会被销毁，由于`weakSelf`实用`__weak`定义了非拥有关系，`weakSelf`会被置为nil，所以输出为：
-```
+```objectivec
 my name is = (null)
 ```
 使用`__strong`可以避免在block生命周期内，`strongSelf`被置为nil：
-```
+```objectivec
 __weak typeof(student) weakSelf = student;
    student.study = ^{
        __strong typeof(student) strongSelf = weakSelf;
@@ -145,7 +145,7 @@ __weak typeof(student) weakSelf = student;
 
 - 使用`initWithArray: copyItems:`拷贝出的对象只能实现单层深复制，完全深复制可以使用归档和解档：
 
-  ```
+  ```objectivec
   copyArray = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:array]];
   ```
 

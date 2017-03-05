@@ -20,10 +20,22 @@ Edit Scheme -> Arguments -> Environment Variables
 
 ## 解决project.pbxproj合并冲突
 
-在工程更目录新建`.gitattributes`文件并添加如下内容:
+- [使用xUnique解决xcproject文件冲突](http://www.swiftcafe.io/2016/10/12/xunique/)
 
-[Automatically resolving git merge conflicts in Xcode's project.pbxproj file](http://roadfiresoftware.com/2015/09/automatically-resolving-git-merge-conflicts-in-xcodes-project-pbxproj/)
+1. 安装pip: [pip官方文档](https://pip.pypa.io/en/stable/installing/)
 
+2. 安装xUnique：
+ ```
+ // 一定要加sudo
+sudo pip install xUnique
+ ```
+3. 去掉`.git/hook/pre-commit.sample`的后缀名`.sample`
+
+4. 将如下内容添加到`pre-commit`:
 ```
-*.pbxproj text -crlf -diff -merge=union
+xunique path/project.xcodeproj
+
+// 如果用了cocopods，还需要加入Pods.xcodeproj
+xunique path/Pods.xcodeproj
 ```
+完成以上操作后，每次commit之前都会通过xUnique将`.xcproject`文件重新编码，避免合并时的冲突。

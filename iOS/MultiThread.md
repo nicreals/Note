@@ -18,7 +18,7 @@
 
 据说这样性能更高：
 
-```
+```objectivec
 static NSString *_name;
 static dispatch_queue_t _concurrentQueue;
 @implementation ZYPerson
@@ -55,7 +55,7 @@ static dispatch_queue_t _concurrentQueue;
 
 一个简单的GCD Timer实现：
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
@@ -98,7 +98,7 @@ NSThread 是 OS X 和 iOS 都提供的一个线程对象，它是线程的一个
 
 1. 动态实例化
 
-```
+```objectivec
 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadImageSource:) object:imgUrl];
 thread.threadPriority = 1;// 设置线程的优先级(0.0 - 1.0，1.0最高级)
 [thread start];
@@ -106,37 +106,37 @@ thread.threadPriority = 1;// 设置线程的优先级(0.0 - 1.0，1.0最高级)
 
 2. 静态实例化
 
-```
+```objectivec
 [NSThread detachNewThreadSelector:@selector(loadImageSource:) toTarget:self withObject:imgUrl];
 ```
 
 3. 隐式实例化
 
-```
+```objectivec
 [self performSelectorInBackground:@selector(loadImageSource:) withObject:imgUrl];
 ```
 
 4. 获取当前线程    
 
-```
+```objectivec
 NSThread *current = [NSThread currentThread];
 ```
 
 5. 获取主线程  
 
-```
+```objectivec
 NSThread *main = [NSThread mainThread];
 ```
 
 6. 暂停当前线程  
 
-```
+```objectivec
 [NSThread sleepForTimeInterval:2];
 ```
 
 7. 线程之间通信  
 
-```
+```objectivec
 //在指定线程上执行操作
 [self performSelector:@selector(run) onThread:thread withObject:nil waitUntilDone:YES];
 //在主线程上执行操作
@@ -147,7 +147,7 @@ NSThread *main = [NSThread mainThread];
 
 ## NSOperation
 
-```
+```objectivec
 NSInvocationOperation *geroge = [[NSInvocationOperation alloc]initWithTarget:self  
  selector:@selector(run)  object:@"asshole"];
 geroge.queuePriority = NSOperationQueuePriorityHigh;
@@ -179,7 +179,7 @@ NSOperation 使用状态机模型来表示状态。通常，你可以使用 KVO�
 
 NSOperation 对象之间的依赖性可以用如下代码表示：
 
-```
+```objectivec
 [refreshUIOperation addDependency:requestDataOperation];
 [operationQueue addOperation:requestDataOperation];
 [operationQueue addOperation:refreshUIOperation];
@@ -195,7 +195,7 @@ NSOperation 还有一个非常有用功能，就是“取消”。这是其他�
 
 #### 串行队列
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
 ```
 
@@ -205,7 +205,7 @@ dispatch_queue_t queue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
 
 #### 并行队列
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("concurrent", DISPATCH_QUEUE_CONCURRENT);
 ```
 
@@ -213,7 +213,7 @@ dispatch_queue_t queue = dispatch_queue_create("concurrent", DISPATCH_QUEUE_CONC
 
 主队列，用于刷新UI操作。
 
-```
+```objectivec
 dispatch_queue_t mainQueue = dispatch_get_main_queue(); // 获取主队列
 ```
 
@@ -223,7 +223,7 @@ dispatch_queue_t mainQueue = dispatch_get_main_queue(); // 获取主队列
 
 该队列有4个执行优先级，分别是高(High)、默认（Default）、低（Low）、后台(Background)。我们可以根据自已的需要把不同的任务追加到各个等级的队列当中。
 
-```
+```objectivec
 /**
  *  获取高优先级队列
  */
@@ -246,7 +246,7 @@ dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
 
 dispatch_set_target的作用是设置一个队列的优先级，我们手动创建的队列，无论是串行队列还是并发队列，都跟默认优先级的全局并发队列具有相同的优先级。如果我们需要改变队列优先级，则可以使用dispatch_set_tartget方法。
 
-```
+```objectivec
 dispatch_queue_t mySerialDispatchQueue = dispatch_queue_create("MySerialDispatchQueue", NULL);
 dispatch_queue_t globalDispatchQueueBackground = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
 dispatch_set_target_queue(mySerialDispatchQueue, globalDispatchQueueBackground);
@@ -258,7 +258,7 @@ dispatch_set_target_queue(mySerialDispatchQueue, globalDispatchQueueBackground);
 
 **在x秒后把任务追加到队列中，并不是在x秒后执行**。
 
-```
+```objectivec
 dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 3ull * NSEC_PER_SEC);
 dispatch_after(time, dispatch_get_main_queue(), ^{
     NSLog(@"waited at least three seconds.");
@@ -271,7 +271,7 @@ dispatch_after(time, dispatch_get_main_queue(), ^{
 
 向group添加任务队列，当所有的任务都完成后，异步通知任务执行结束。
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);  //获取全局并发队列
 
 dispatch_group_t group = dispatch_group_create(); //创建dispatch_group
@@ -286,7 +286,7 @@ NSLog(@"不阻塞");
 
 上面的代码，执行结果为:
 
-```
+```objectivec
 不阻塞
 block 3
 block 2
@@ -300,7 +300,7 @@ block 1
 
 向group追加任务队列，如果所有的任务都执行或者超时，返回一个long类型的值。
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);  //获取全局并发队列
 dispatch_group_t group = dispatch_group_create(); //创建dispatch_group
 dispatch_group_async(group, queue, ^{ NSLog(@"block 1"));}); //把任务追加到队列中
@@ -319,7 +319,7 @@ NSLog(@"阻塞");
 
 执行结果是
 
-```
+```objectivec
 block 1
 block 2    
 block 3
@@ -331,7 +331,7 @@ block 3
 
 `dispatch_group_wait`函数返回值为0，表示里面的所有任务都已经执行（若不为0则表示等待超时）。如果把等待时间改为4秒（dispatch_time(DISPATCH_TIME_NOW, 4ull * NSEC_PER_SEC)），那么因为最后添的那个block，至少需要5秒的时候，才可以执行完毕。那么result返回值则不为0。执行结果为
 
-```
+```objectivec
 block 1
 block 2    
 阻塞
@@ -346,7 +346,7 @@ block 3
 
 如果你需要重复执行同一个任务，`dispatch_apply`是你最好的选择。
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 NSArray *array = @[@"one",@"two",@"three"];
 dispatch_apply(3, queue, ^(size_t index) {
@@ -358,7 +358,7 @@ NSLog(@"阻塞");
 
 上面的代码执行结果是
 
-```
+```objectivec
 2015-09-08 22:01:12.354 Thread Learn[40330:1678876] one
 2015-09-08 22:01:12.354 Thread Learn[40330:1678948] two
 2015-09-08 22:01:12.355 Thread Learn[40330:1678965] three
@@ -367,7 +367,7 @@ NSLog(@"阻塞");
 
 可见`dispatch_apply`是以同步的方式把任务追加到队列当中，所以一般会在`dispatch_async`函数中异步执行该函数
 
-```
+```objectivec
 //异步执行
 dispatch_async(queue, ^{
     dispatch_apply(3, queue, ^(size_t index) {
@@ -380,7 +380,7 @@ dispatch_async(queue, ^{
 
 `dispatch_suspend`挂起指定的队列
 
-```
+```objectivec
 dispatch_supend(queue);
 ```
 
@@ -396,7 +396,7 @@ dispatch_resume(queue);
 
 可能大家使用dispatch_one生成单例，而很多人都会这样子写
 
-```
+```objectivec
 +(MAMapView *)shareMAMapView{
     static MAMapView *instance = nil;
     static dispatch_once_t predicate;
@@ -409,7 +409,7 @@ dispatch_resume(queue);
 
 但这样写会有问题的，要复写`alloWithZone:`方法
 
-```
+```objectivec
 static MAMapView *instance = nil;
 //重写allocWithZone保证分配内存alloc相同
 +(id)allocWithZone:(struct _NSZone *)zone{
@@ -445,7 +445,7 @@ static MAMapView *instance = nil;
 
 可以通过信号量来创建一个并发控制来同步任务和有限资源访问控制。
 
-```
+```objectivec
 dispatch_group_t group = dispatch_group_create();   
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);   
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);   

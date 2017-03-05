@@ -37,7 +37,7 @@ NSMutableDictionary | `__NSDictionaryM`
 
 一个`isEqual`的判断示例:
 
-```
+```objectivec
 - (BOOL)isEqual:(id)object {
   if (self == object) {
     return YES;
@@ -57,7 +57,7 @@ NSMutableDictionary | `__NSDictionaryM`
 
 由于`字符串驻留`优化技术， **所有静态定义的不可变字符串对象** ，如果字符串表意相同，那么这些对象都指向同一个驻留字符串值，其类型为`__NSCFConstantString`。
 
-```
+```objectivec
 // 静态定义
 NSString *a = @"Hello";
 NSString *b = @"Hello";
@@ -73,7 +73,7 @@ BOOL ass = (a == c); // NO
 
 泛型可用于制定容器中对象的类型：
 
-```
+```objectivec
 NSArray<NSString *> *strings = @[@"sun", @"yuan"];
 NSDictionary<NSString *, NSNumber *> *mapping = @{@"a": @1, @"b": @2};
 ```
@@ -90,13 +90,13 @@ NSDictionary<NSString *, NSNumber *> *mapping = @{@"a": @1, @"b": @2};
 
 `__kindof`相对于`id`更加具体的制定了对象的类型：
 
-```
+```objectivec
 @property (nonatomic, readonly, copy) NSArray<__kindof UIView *> *subviews;
 ```
 
 在调用时也不需要强转类型，同时也不会有编译警告：
 
-```
+```objectivec
 UIButton *button = [view.subviews lastObject];
 ```
 
@@ -120,19 +120,15 @@ IOS 7 OR LATER
 
 - 在UINavigationController重写`preferredStatusBarStyle`方法，返回topViewController的UIStatusBarStyle。
 
-  ````
-  ​```
-            (UIStatusBarStyle)preferredStatusBarStyle {
+```objectivec
+(UIStatusBarStyle)preferredStatusBarStyle {
 
-              UIViewController *viewController = self.topViewController;
+  UIViewController *viewController = self.topViewController;
 
-              return [viewController preferredStatusBarStyle];
+  return [viewController preferredStatusBarStyle];
 
-            }
-            ​```
-  ````
-
-BEFORE IOS7
+}
+```
 
 - info.plist 设置`UIViewControllerBasedStatusBarAppearance`为NO；
 
@@ -152,7 +148,7 @@ BEFORE IOS7
 
 - 设置阴影线条image
 
-  ```
+  ```objectivec
   // 隐藏阴影黑线
   [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
   // 显示阴影黑线
@@ -161,7 +157,7 @@ BEFORE IOS7
 
 - 设置背景图片
 
-  ```
+  ```objectivec
   [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
   ```
 
@@ -171,7 +167,7 @@ BEFORE IOS7
 
 #### 定义常量
 
-```
+```objectivec
 .h //
 extern NSString * const kConstExternFoo;
 .m //

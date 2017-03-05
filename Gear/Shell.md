@@ -30,7 +30,7 @@ sudo spctl --master-disable
 
 在`~/.bashrc`文件中加入如下function:
 
-```
+```bash
 function setproxy() {
     # export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:3128"
     export ALL_PROXY=socks5://127.0.0.1:1080
@@ -46,7 +46,7 @@ function unsetproxy() {
 
 - 安装OMF
 
-```
+```bash
 curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 omf help
 omf install pure
@@ -55,7 +55,7 @@ omf theme pure
 
 - fish中安装rvm
 
-```
+```bash
 omf install rvm
 rvm install x.x
 rvm use x.x
@@ -65,7 +65,7 @@ rvm use x.x
 
 - 在`~/.config/fish/functions`创建`setproxy.fish`文件并设置如下function:
 
-```
+```bash
 function setproxy
   export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;
   echo "====== current socks proxy:"$https_proxy"======"

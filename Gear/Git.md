@@ -2,7 +2,7 @@
 
 ## 初始化设置
 
-```
+```bash
 git config --global user.name "聂锐"
 
 git config --global user.email nic.reals@outlook.com
@@ -16,7 +16,7 @@ git config --global --unset http.proxy // 撤销http代理设置
 ## 常规用法
 
 - 删除远程分支
-```
+```shell
 git push origin --delete {branch} // 注意冒号的书写位置
 ```
 
