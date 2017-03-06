@@ -174,4 +174,5 @@ s.prefix_header_file = 'UP-Base.pch'
 s.public_header_files = 'UP-Base.h'
 ```
 __同时要注释掉主工程的`Podfile`中的`use_framework!`;__
+
 这样可以在新建文件时自动倒入该文件的父类(前提是`UP-Base.h`中定义了该类)
