@@ -44,6 +44,12 @@ function unsetproxy() {
 
 ## Fish Shell
 
+- 设置fish为默认shell
+
+``` bash
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+```
+
 - 安装OMF
 
 ```bash
