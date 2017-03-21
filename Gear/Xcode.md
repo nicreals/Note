@@ -20,7 +20,31 @@ Edit Scheme -> Arguments -> Environment Variables
 
 ## 解决project.pbxproj合并冲突
 
-- [使用xUnique解决xcproject文件冲突](http://www.swiftcafe.io/2016/10/12/xunique/)
+### mergepbx
+
+1. 安装`mergepbx`
+
+```shell
+brew install mergepbx
+```
+
+2. 在`~/.gitconfig`文件中配置`mergepbx`
+
+```
+[merge "mergepbx"]
+        name = XCode project files merger
+        driver = mergepbx %O %A %B
+```
+
+3. 在工程目录下创建`. gitattributes`文件并设置用mergepbx处理`pbxproj`文件合并
+
+```
+*.pbxproj merge=mergepbx
+```
+
+### xUnique (弃用)
+
+[使用xUnique解决xcproject文件冲突](http://www.swiftcafe.io/2016/10/12/xunique/)
 
 1. 安装pip: [pip官方文档](https://pip.pypa.io/en/stable/installing/)
 

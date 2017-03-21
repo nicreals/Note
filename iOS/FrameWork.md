@@ -8,7 +8,9 @@
 
 `Build Phases` -> `Headers` 添加暴露给外部的头文件
 
-# Building
+如果framework中含有category，在`Build Setting` -> `Other Linker Flag`中添加 `-ObjC`
+
+## Building
 
 构建多Architecture包:
 
@@ -37,3 +39,13 @@ lipoFramework "${PROJECT_NAME}"
 rm -r -f ${BUILD_DIR}
 
 ```
+
+## 模块化设计
+
+将项目按业务分成若干模块，并包装成静态framework集成到主工程中
+
+- 资源文件需要放在主模块中以便调用，包括第三方库的bundle
+
+- `other warning flags`加入`-Wno-incomplete-umbrella`屏蔽头文件暴露警告
+
+- 由于业务模块是静态framework，需要编译业务模块后，更改的代码才能更新到APP中
