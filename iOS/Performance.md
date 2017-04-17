@@ -66,6 +66,8 @@ tableViewCell.imageView.image = UPUncachedPNGImage(@"image");
 }
 ```
 
+同理利用`CoreText`异步绘制文字。
+
 ## 离屏渲染
 
 ## TableView相关优化
@@ -74,21 +76,19 @@ tableViewCell.imageView.image = UPUncachedPNGImage(@"image");
 
 * 最大程度利用重用机制(差异性属性放在初始化之外，并且条件判断尽量覆盖所有情况,复用view和某些开销大的对象);
 * cell使用轻量级对像，`CALayer`的创建比`UIView`节省CPU资源，避免使用Xib创建cell;
-* 当view不透明时，尽量讲`opaque`设置为`YES`,可以减少GPU混合绘制消耗;
-* 性能敏感的tableView使用手动计算cell高度，避免使用`AutoLayout`(代码产出换性能的做法并不非常可取);
-
-同理利用`CoreText`异步绘制文字。
+* 当view不透明时，尽量将`opaque`设置为`YES`,可以减少GPU混合绘制消耗;
+* **性能敏感** 的tableView使用手动计算cell高度，避免使用`AutoLayout`;
 
 ### `UITableView`在快速滑动时的异步线程处理
 
-通常在加载`UITableViewCell`内容时会发送异步请求数据，然后回到UI线程加载内容，当`UITableView`在快速滑动时会创建大量异步请求(如加载网络图片)，但当网络请求有回调时大量`UITableViewCell`其实已经不在显示区域内而被销毁了，所以这些异步请求是没有意义的，虽然是异步请求，但过多的异步线程同样也会造成卡顿；
+通常在加载`UITableViewCell`内容时会发送异步请求数据，然后回到UI线程加载内容，如果`UITableView`在快速滑动时创建大量异步请求(如加载网络图片)，当异步任务完成时大量`UITableViewCell`其实已经不在显示区域内而被销毁了，所以这些异步请求是没有意义的，虽然是异步请求，但过多的异步线程同样也会造成卡顿；
 可做如下优化：
 ```objectivec
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
   NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-          [self asyncRequest]; // 当tableView滑动减速时，就当cell 在可是区域内才发送异步请求
+          [self asyncRequest]; // 当tableView滑动停止时，就当cell 在可是区域内才发送异步请求
         }
 }
 
