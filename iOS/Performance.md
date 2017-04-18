@@ -130,7 +130,7 @@ cell.layer.rasterizationScale = UIScreen.main.scale;
 
 ## 性能检测
 
-- 终极调试神奇-FLEX：
+- 终极调试神器-FLEX：
 
   [FLEX-Github](https://github.com/Flipboard/FLEX)
 
