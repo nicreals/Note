@@ -130,17 +130,21 @@ cell.layer.rasterizationScale = UIScreen.main.scale;
 
 ## 性能检测
 
-- 终极调试神奇-FLEX
+- 终极调试神奇-FLEX：
+
   [FLEX-Github](https://github.com/Flipboard/FLEX)
 
 
 - Instruments 检测离屏渲染，内存泄漏等问题：
+
   [使用 Instruments 做 iOS 程序性能调试](http://www.samirchen.com/use-instruments/)
 
 
 - 实时显示FPS：
+
   [YYFPSLabel-Github](https://github.com/yehot/YYFPSLabel)
 
 
 - 循环引用检测工具:
+
   [FBRetainCycleDetector-Github](https://github.com/facebook/FBRetainCycleDetector)

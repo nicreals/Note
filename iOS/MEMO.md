@@ -17,34 +17,3 @@
 * [优化UITableViewCell高度计算的那些事](http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/)
 * [深入理解RunLoop](http://blog.ibireme.com/2015/05/18/runloop/)
 * [iOS中的几种持久化方案](http://www.jianshu.com/p/7616cbd72845)
-
-## Tips
-
-### `Create groups` & `Create folder references` 区别
-
-`Create groups`将创建一个黄色的文件组，通过该方式添加的文件将会被编译；而通过`Create folder references`只是添加了文件的引用，蓝色文件夹标识，，文件不会被编译，使用时需要`import`绝对文件路径。
-
-### 绘制阴影时避免`Offscreen-Rendered`
-
-绘制阴影效果时，为layer指定shadowPath可以避免`Offscreen-Rendered`:
-
-```
-view.layer.shadowPath = [UIBezierPath  bezierPathWithRect:view.bounds].CGPath;
-```
-
-### UITableView 性能优化
-
-#### 基本建议
-
-* cell的prototype设计尽量抽象提高复用度；
-* 减少页面层级关系；
-* 图片资源尽量使用PNG格式；
-* 减少页面层级关系；
-
-### Self-Sized Cell
-`Self-Sized Cell`的tableView的思路是在计算将要展示的cell高度时，会预先根据`estimated height`预先设置cell的高度和调整滚动条，然后cell通过自身设置的约束来调整自身`contentSize`。
-此思路的tableView能直接为cell的高度赋值，只需要设置cell的预估高度和启用动态布局：
-```
-tableView.estimatedRowHeight = 44.f;
-tableView.rowHeight = UITableViewAutomaticDimension;
-```
