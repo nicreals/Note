@@ -87,7 +87,7 @@ ContentHuggingPriority为阻止view被拉伸的优先级，优先级越高，越
 
 ## Baseline
 
-baseline即基线的意思，对应于Autolayout里面的NSLayoutFormatAlignAllBaseline。
+baseline即基线的意思，对应于Autolayout里面的NSLayoutFormatAlignAllBaseline,默认情况下是view的center。
 ```
 make.baseline.equalTo(view);
 ```
