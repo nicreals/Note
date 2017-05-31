@@ -1,5 +1,23 @@
 # Xcode
 
+## xcode-install
+
+安装多个版本Xcode:
+```
+gem install xcode-install
+xcversion list
+xcversion install 7
+```
+
+切换Xcode：
+```
+// 查看当前 Xcode 路径
+xcode-select -p
+
+// 切换
+sudo xcode-select -s /Applications/Xcode-8.2.1.app/Contents/Developer/
+```
+
 ## Xcode 警告
 
 - 开启可信度较高的警告
@@ -40,6 +58,7 @@ brew install mergepbx
 
 ```
 *.pbxproj merge=mergepbx
+*.pbxproj binary merge=union
 ```
 
 ### xUnique (弃用)
