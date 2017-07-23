@@ -1,7 +1,6 @@
 # NSURLSession
 
 >[从 NSURLConnection 到 NSURLSession](https://objccn.io/issue-5-4/)
-
 >[iOS里实现multipart/form-data格式上传文件](http://www.jianshu.com/p/a0e3c77d3164)
 
 ## NSURLSession vs NSURLConnection
