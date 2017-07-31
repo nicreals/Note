@@ -8,8 +8,6 @@
 
 ![xcode_gun](../IMG/xcode_gun.jpg)
 
-*也不是没有优点，至少人家免费。*
-
 vim大概这样:
 
 ![vim_gun](../IMG/vim.jpg)
@@ -37,6 +35,8 @@ vim大概这样:
 编码过程中不可避免要对代码进行重构，以最简单的改变量名称为例:
 
 ![appcode_refactor](../IMG/appcode_refactor.gif)
+
+同时AppCode支持对枚举，类名，文件名进行全局更改，并且能够将代码片段封装成方法。
 
 ### Code Completion
 
@@ -84,6 +84,10 @@ AppCode除了可以定制代码配色，文件布局，甚至可以自定义代�
   ```
 
   那么指定后，AppCode会自动在你输入`{}`是将其格式化成如上形式
+
+### Auto Integration
+
+不同于Xcode，使用AppCode，对Framework，libary，bundle的更改会实时生效，而不需要像Xcode那样编译一遍相应的target之后才能生效
 
 ### Version Control
 
