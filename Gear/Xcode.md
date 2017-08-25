@@ -1,5 +1,11 @@
 # Xcode
 
+> [Xcode配置编译前脚本](http://liujinlongxa.com/2016/11/27/Xcode%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BC%96%E8%AF%91%E5%89%8D%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/)
+
+> [脚本动态添加Xcode文件](http://draveness.me/bei-xcodeproj-keng-de-zhe-ji-tian.html)
+
+> [PlistBuddy使用](http://www.jianshu.com/p/2167f755c47e)
+
 ## xcode-install
 
 安装多个版本Xcode:
@@ -18,7 +24,9 @@ xcode-select -p
 sudo xcode-select -s /Applications/Xcode-8.2.1.app/Contents/Developer/
 ```
 
-## Xcode 警告
+## Warning
+
+### 警告等级
 
 - 开启可信度较高的警告
 
@@ -32,11 +40,20 @@ Build Setting -> other c flags -> `-Wextra`
 
 Target -> Build Setting -> Other Linker Flag -> `-w`
 
+### 警告屏蔽
+
+对于编译警告，右键`Reveal in Log`，找到类似`[-Wprotocol]`的警告类型，然后在`Build Setting` -> `Other Warning Flags` 中添加`[-Wno-protocol]`
+
 ## 环境变量
 
-Edit Scheme -> Arguments -> Environment Variables
+`Edit Scheme` -> `Arguments` -> `Environment Variables`
+例如添加`DYLD_PRINT_STATISTICS = 1`，app在启动时会在console中打印详细的启动耗时
 
-## 解决project.pbxproj合并冲突
+## XCodeConfig
+
+
+
+## pbxproj合并冲突
 
 ### mergepbx
 
