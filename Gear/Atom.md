@@ -12,6 +12,10 @@ Descriptions |    ShortCut
 显示Markdown预览 | ctrl-shift-m
 打开当前目录中的文件 | cmd-p
 
+## 自动保存
+
+`setting` -> 'packages' -> `autosave` -> enable
+
 ## 实用插件
 
 - [file-icons](https://atom.io/packages/file-icons) 图标美化

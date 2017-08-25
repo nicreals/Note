@@ -2,6 +2,14 @@
 
 > [AppCode Features](https://www.jetbrains.com/objc/features/)
 
+## Keymap
+
+Descriptions |   ShortCut
+:----------- | :-------------:
+find useage | alt - f7
+replace in path | cmd-alt-shift-f
+
+
 ## Compare
 
 考虑到经常抽风，崩溃，各种奇怪的问题，使用Xcode的感受大概是这样:
