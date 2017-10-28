@@ -47,6 +47,7 @@ function unsetproxy() {
 - 设置fish为默认shell
 
 ``` bash
+chsh -s /usr/local/bin/fish
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 ```
 
@@ -100,4 +101,11 @@ curl -i http://ip.cn
 
 ```
 curl -x 127.0.0.1:1086 {url}
+```
+
+## nvm-fish
+
+```
+git clone https://github.com/Alex7Kom/nvm-fish.git ~/.nvm-fish
+source ~/.nvm-fish/nvm.fish
 ```

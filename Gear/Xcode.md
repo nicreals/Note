@@ -49,9 +49,11 @@ Target -> Build Setting -> Other Linker Flag -> `-w`
 `Edit Scheme` -> `Arguments` -> `Environment Variables`
 例如添加`DYLD_PRINT_STATISTICS = 1`，app在启动时会在console中打印详细的启动耗时
 
+## 多Framework
+
+## 僵尸模式 
+
 ## XCodeConfig
-
-
 
 ## pbxproj合并冲突
 
