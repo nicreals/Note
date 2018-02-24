@@ -18,6 +18,7 @@
     * [Tools](/Gear/Tools.md)
     * [Travis CI](/Gear/Travis-CI.md)
     * [Xcode](/Gear/Xcode.md)
+    * [ZSH](/Gear/ZSH.md)
 * iOS
     * [Animation](/iOS/Animation.md)
     * [Block](/iOS/Block.md)
