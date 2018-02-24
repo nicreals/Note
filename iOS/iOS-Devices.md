@@ -21,3 +21,6 @@ $$\frac{\sqrt{X^2 + Y^2}}{Z}$$
 *其中plus设备总计有`1242 x 2208`个像素点，实际设备物理像素点为`1080 x 1920`,图片和字体会被缩小`1.15`(1242/1080)倍，在实际变成中为统一视觉效果效果，可以为plus设备fontSize放大`1.15`倍*
 
 ![device_size](../IMG/device_size.png)
+
+
+scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/* root@192.168.2.28:/Library/RHRevealLoader

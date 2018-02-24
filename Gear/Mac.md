@@ -14,3 +14,11 @@ Finder下显示/隐藏文件 | cmd-shift-.
 ## 固定Finder窗口大小
 
 按住`opt`拖动`Finder`窗口即可固定大小
+
+
+## 设置LaunchPad图标大小
+
+```
+defaults write com.apple.dock springboard-columns -int 12             // 默认为7
+defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock  // 重启Dock
+```

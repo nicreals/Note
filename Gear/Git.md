@@ -28,3 +28,9 @@ git push -u origin master // 只有"push -u" 到远程仓库之后才能创建�
 git checkout -b {new branch name}
 git branch --list
 ```
+
+## 修改提交信息
+
+```
+git commit --amend
+```

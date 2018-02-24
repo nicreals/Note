@@ -17,3 +17,4 @@
 * [优化UITableViewCell高度计算的那些事](http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/)
 * [深入理解RunLoop](http://blog.ibireme.com/2015/05/18/runloop/)
 * [iOS中的几种持久化方案](http://www.jianshu.com/p/7616cbd72845)
+* [iOS App 性能备忘](http://liyong03.github.io/blog/2014/04/27/ios-performance/)
