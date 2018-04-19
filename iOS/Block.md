@@ -1,8 +1,12 @@
 # Block
 
+> [Objective-C 高级编程 iOS与OSX多线程和内存管理]
+
 ## 定义
 
-```
+Block(闭包)是C语言的扩充功能,是带有自动变量(局部变量)的匿名函数;
+
+```c
 int (^multiBlock) (int) = ^(int intVar) {
   return intVar * 2;
 }
@@ -16,7 +20,7 @@ int (^multiBlock) (int) = ^(int intVar) {
 
 block要递归调用，block本身必须是全局变量或者是静态常量：
 
-```
+```c
 static void(^ const block)(int) = ^(int i) {
   if (i > 0) {
     NSLog(@"%d",i);

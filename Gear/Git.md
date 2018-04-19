@@ -11,6 +11,10 @@ git config --global http.proxy 'socks5://127.0.0.1:1080'  //配置git使用shado
 git config --global --get http.proxy //获取当前http代理地址
 git config --global --unset http.proxy // 撤销http代理设置
 
+git config --global http.https://github.com.proxy https://127.0.0.1:1087  // 单独为github设置http代理
+git config --global https.https://github.com.proxy https://127.0.0.1:1087
+git config --global http.postBuffer 524288000 // 增加buffer
+
 ```
 
 ## 常规用法
