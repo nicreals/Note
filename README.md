@@ -20,6 +20,7 @@
     * [Xcode](/Gear/Xcode.md)
     * [ZSH](/Gear/ZSH.md)
 * iOS
+    * [Advance Objective-C](/iOS/Advance Objective-C.md)
     * [Animation](/iOS/Animation.md)
     * [Block](/iOS/Block.md)
     * [Debug](/iOS/Debug.md)
